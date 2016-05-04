@@ -10,27 +10,20 @@ namespace CarDealership.Catalog
 {
     public class CarCatalog : Car
     {
-        private ObservableCollection<Car> _carList; 
+        // Instance Field
+        private List<Car> _carList;
 
-        // List
-        public ObservableCollection<Car> Carlist
-        {
-             set { this._carList = value; }
-             get { return _carList; }
-        }
-         
         // Method
-        public void AddCar(Car Name)
+        public Car CreatNewCar(int id, string name, string brand, string color, int year, string comment)
         {
-            Carlist.Add(Name);
-        } 
+            _carList = new List<Car>();
 
-        // Constructor
-        public CarCatalog()
-        {
-            
+            Car car = new Car() {ID = id, Name = name, Brand = brand, Color = color, Year = year, Comment = comment};
+
+            _carList.Add(car);
+
+            return car;
+
         }
-
-
     }
 }
