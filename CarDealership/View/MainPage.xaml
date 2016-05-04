@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModel="using:CarDealership.ViewModel"
+    xmlns:interfaces="using:CarDealership.Interfaces"
     x:Class="CarDealership.View.MainPage"
     mc:Ignorable="d">
 
@@ -14,25 +15,44 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         
-        <Button Content="Add Car" Command="{Binding AddCar}" Width="150"/>
-        <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,100"/>
+        <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150"/>
+        <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" interfaces:BindingUtility.UpdateSourceOnChange="True" PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        
+        <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,400" PlaceholderText="Name"/>
+        <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,325" PlaceholderText="Brand"/>
+        <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,250" PlaceholderText="Color"/>
+        <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,175" PlaceholderText="Comment"/>
+        <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,100" PlaceholderText="Year"/>
 
-        <ListView Width="350" 
+
+        <ListView Width="350"
+                  Height="650"
                   ItemsSource="{Binding CarCollection}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="350" 
-                                Background="Brown" 
-                                Orientation="Horizontal" 
-                                Height="30">
-                        <TextBlock Text="Name:" 
-                                   Width="100"/>
-                        <StackPanel Width="250" 
-                                    Background="Aqua" 
-                                    Orientation="Horizontal" 
-                                    Height="30">
-                        <TextBlock Text="{Binding Name}"/>
-                            </StackPanel>
+                    <StackPanel Width="350"
+                                Background="Brown"
+                                Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name:" Width="50"/>
+                        <TextBox Text="{Binding Name}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Brand:" Width="50"/>
+                            <TextBox Text="{Binding Brand}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Color:" Width="50"/>
+                            <TextBox Text="{Binding Color}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Comment:" Width="50"/>
+                            <TextBox Text="{Binding Comment}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Year:" Width="50"/>
+                            <TextBox Text="{Binding Year}" Width="275"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

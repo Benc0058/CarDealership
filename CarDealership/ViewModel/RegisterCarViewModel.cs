@@ -17,7 +17,7 @@ namespace CarDealership.ViewModel
 
         private CarCatalog _carCatalog;
         private ObservableCollection<Car> _carCollection;
-
+        private string _searchTerm;
         // Properties
 
         public ObservableCollection<Car> CarCollection
@@ -28,6 +28,16 @@ namespace CarDealership.ViewModel
                 OnPropertyChanged();
             }
             get { return _carCollection; }
+        }
+
+        public string SearchTerm
+        {
+            set
+            {
+                _searchTerm = value;
+                OnPropertyChanged();
+            }
+            get { return _searchTerm; }
         }
 
         public int ID { set; get; }

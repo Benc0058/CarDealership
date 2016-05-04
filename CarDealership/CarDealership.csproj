@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Catalog\CarCatalog.cs" />
+    <Compile Include="Interfaces\BindingUtility.cs" />
     <Compile Include="Interfaces\Command.cs" />
     <Compile Include="Interfaces\Notification.cs" />
     <Compile Include="Model\Car.cs" />
