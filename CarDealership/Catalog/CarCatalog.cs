@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarDealership.Model;
+using CarDealership.ViewModel;
 
 namespace CarDealership.Catalog
 {
-    public class CarCatalog : ViewModel.RegisterCarViewModel
+    public class CarCatalog
     {
         // Instance Field
         private List<Car> _carList;
