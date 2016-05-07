@@ -8,7 +8,7 @@ using CarDealership.Catalog;
 
 namespace CarDealership.Model
 {
-    public class Car
+    public class Car : CarCatalog
     {
         // Instance Field
         private int _id;
@@ -53,6 +53,6 @@ namespace CarDealership.Model
         {
             set { this._comment = value; }
             get { return _comment; }
-        }     
+        }
     }
 }

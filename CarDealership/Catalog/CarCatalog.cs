@@ -8,7 +8,7 @@ using CarDealership.Model;
 
 namespace CarDealership.Catalog
 {
-    public class CarCatalog : Car
+    public class CarCatalog : ViewModel.RegisterCarViewModel
     {
         // Instance Field
         private List<Car> _carList;
@@ -18,7 +18,7 @@ namespace CarDealership.Catalog
         {
             _carList = new List<Car>();
 
-            Car car = new Car() {ID = id, Name = name, Brand = brand, Color = color, Year = year, Comment = comment};
+            Car car = new Car() { ID = id, Name = name, Brand = brand, Color = color, Year = year, Comment = comment };
 
             _carList.Add(car);
 
