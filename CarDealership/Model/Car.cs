@@ -8,7 +8,7 @@ using CarDealership.Catalog;
 
 namespace CarDealership.Model
 {
-    public class Car : CarCatalog
+    public class Car
     {
         // Instance Field
         private int _id;
