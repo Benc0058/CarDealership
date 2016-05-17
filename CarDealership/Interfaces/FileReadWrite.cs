@@ -1,13 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarDealership.Model;
-using CarDealership.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -27,29 +19,14 @@ using Windows.UI.Xaml.Navigation;
 using CarDealership.Model;
 using CarDealership.Catalog;
 
-namespace CarDealership.Catalog
+
+namespace CarDealership.Interfaces
 {
-    static public class CarCatalog
+    class FileReadWrite
     {
-        // Instance Field
-        static public List<Car> _carList = new List<Car>();
 
-        // Method
-        static public Car CreatNewCar(int id, string name, string brand, string color, int year, string comment)
-        {
-            Car car = new Car(id, name, brand, color, year, comment);
-
-            _carList.Add(car);
-
-            return car;
-
-        }
-        static public async void SaveList()
-        {
-          await writeJsonAsync();
-        }
         #region ModelData methods "Object Graphs"
-        static private List<Car> buildObjectGraph()
+        private List<Car> buildObjectGraph()
         {
             var myCars = CarCatalog._carList;
             return myCars;
@@ -65,7 +42,7 @@ namespace CarDealership.Catalog
         #endregion
 
         #region XML helper methods
-        static public async Task writeXMLAsync()
+        public async Task writeXMLAsync()
         {
             var myCars = buildObjectGraph();
 
@@ -77,10 +54,10 @@ namespace CarDealership.Catalog
                 serializer.WriteObject(stream, myCars);
             }
 
-
+        
         }
 
-        static public async Task readXMLAsync()
+        public async Task readXMLAsync()
         {
             string content = String.Empty;
 
@@ -90,12 +67,12 @@ namespace CarDealership.Catalog
                 content = await reader.ReadToEndAsync();
             }
 
-
+          
         }
         #endregion
 
         #region JSON helper methods
-        static public async Task writeJsonAsync()
+        public async Task writeJsonAsync()
         {
             // Notice that the write is ALMOST identical ... except for the serializer.
 
@@ -109,10 +86,10 @@ namespace CarDealership.Catalog
                 serializer.WriteObject(stream, myCars);
             }
 
-
+           
         }
 
-       static public async Task readJsonAsync()
+        public async Task readJsonAsync()
         {
             // Notice that the write **IS** identical ... except for the serializer.
 
@@ -124,10 +101,12 @@ namespace CarDealership.Catalog
                 content = await reader.ReadToEndAsync();
             }
 
-
+            
         }
-      
-        static public async Task deserializeJsonAsync()
+        #endregion
+
+        #region object graph JSON
+        public async Task deserializeJsonAsync()
         {
             string content = String.Empty;
 
@@ -137,13 +116,13 @@ namespace CarDealership.Catalog
             var myStream = await ApplicationData.Current.LocalFolder.OpenStreamForReadAsync(JSONFILENAME);
 
             myCars = (List<Car>)jsonSerializer.ReadObject(myStream);
-            //
-            // foreach (var car in myCars)
-            // {
+//
+           // foreach (var car in myCars)
+           // {
             //    content += String.Format("ID: {0}, Make: {1}, Model: {2} ... ", car.Id, car.Make, car.Model);
-            // }
+           // }
 
-
+           
         }
         #endregion
     }

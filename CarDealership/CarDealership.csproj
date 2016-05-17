@@ -100,8 +100,11 @@
     </Compile>
     <Compile Include="Catalog\CarCatalog.cs" />
     <Compile Include="Interfaces\Command.cs" />
+    <Compile Include="Interfaces\FileReadWrite.cs" />
+    <Compile Include="Interfaces\Navigate.cs" />
     <Compile Include="Interfaces\Notification.cs" />
     <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\RegisterCarViewModel.cs" />
@@ -133,6 +136,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using CarDealership.Model;
+using Windows.UI.Xaml.Controls;
+
 
 namespace CarDealership.ViewModel
 {
     public class RegisterCarViewModel : Notification
     {
         // Instance Field
-
-        private CarCatalog _carCatalog;
         private ObservableCollection<Car> _carCollection;
 
         // Properties
@@ -45,20 +45,33 @@ namespace CarDealership.ViewModel
         // Commands
 
         public Command AddCar { set; get; }
+        public Command Switchpage { set; get; }
+        public Command Save { get; set; }
 
         // Constructor
 
         public RegisterCarViewModel()
         {
-            _carCatalog = new CarCatalog();
+          //  _carCatalog = new CarCatalog();
 
             AddCar = new Command(DoCommand);
+            Switchpage = new Command(Switch);
+            Save = new Command(SaveIT);
+        
 
             CarCollection = new ObservableCollection<Car>();
         }
 
         // Methods
+        public void SaveIT(object item)
+        {
+            CarCatalog.SaveList();
+        }
 
+        public void Switch(object Item)
+        {
+          
+        }
         public void DoCommand(object newItem)
         {
             int cmdId = ID;
@@ -68,7 +81,7 @@ namespace CarDealership.ViewModel
             int cmdYear = Year;
             string cmdComment = Comment;
 
-            Car car = _carCatalog.CreatNewCar(cmdId, cmdName, cmdBrand, cmdColor, cmdYear, cmdComment);
+            Car car = CarCatalog.CreatNewCar(cmdId, cmdName, cmdBrand, cmdColor, cmdYear, cmdComment);
 
             CarCollection.Add(car);
 
