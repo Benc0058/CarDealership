@@ -61,7 +61,9 @@ namespace CarDealership.ViewModel
 
             _facade = new Facade();
 
-            _facade.Save(_carCollection);
+            //_facade.Save(_carCollection);
+            
+            this.LoadData();
         }
 
         // Methods
@@ -80,6 +82,23 @@ namespace CarDealership.ViewModel
             CarCollection.Add(car);
             _facade.Save(_carCollection);
 
+            
+
+        }
+
+        public async void LoadData()
+        {
+            try
+            {
+                ObservableCollection<Car> car = await _facade.Load();
+
+                this._carCollection = car;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error is: " + ex,"Error");
+            }
+            
         }
     }
 }
