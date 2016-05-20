@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using CarDealership.Model;
+using System.Runtime.Serialization;
+using CarDealership.Persistency;
 
 namespace CarDealership.ViewModel
 {
@@ -17,6 +19,7 @@ namespace CarDealership.ViewModel
 
         private CarCatalog _carCatalog;
         private ObservableCollection<Car> _carCollection;
+        private Facade _facade;
 
         // Properties
 
@@ -55,6 +58,10 @@ namespace CarDealership.ViewModel
             AddCar = new Command(DoCommand);
 
             CarCollection = new ObservableCollection<Car>();
+
+            _facade = new Facade();
+
+            _facade.Save(_carCollection);
         }
 
         // Methods
@@ -71,6 +78,7 @@ namespace CarDealership.ViewModel
             Car car = _carCatalog.CreatNewCar(cmdId, cmdName, cmdBrand, cmdColor, cmdYear, cmdComment);
 
             CarCollection.Add(car);
+            _facade.Save(_carCollection);
 
         }
     }

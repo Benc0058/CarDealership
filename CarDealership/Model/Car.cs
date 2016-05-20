@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using Windows.Storage;
 using Windows.UI.Notifications;
 using CarDealership.Catalog;
 
 namespace CarDealership.Model
 {
+    //[DataContract]
     public class Car
     {
         // Instance Field
