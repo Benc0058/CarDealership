@@ -8,8 +8,12 @@ namespace CarDealership.Model
 {
     public class User
     {
+        // Instance Field
+
         private string _userName;
         private string _password;
+
+        //Properties
 
         public string UserName
         {
@@ -35,6 +39,19 @@ namespace CarDealership.Model
             {
                 _password = value;
             }
+        }
+
+        // Constructor
+
+        public User(string userName, string password)
+        {
+            UserName = userName;
+            Password = password;
+        }
+
+        public User()
+        {
+            
         }
     }
 }
