@@ -53,12 +53,11 @@ namespace CarDealership.ViewModel
 
         public LoginViewModel()
         {
-            
+
             CurrentUser = new User();
             LoginCommand = new CommandLogin(DoLogin);
             //_facade = new UserFacade();
             _users = new ObservableCollection<User>();
-
 
         }
 
@@ -67,8 +66,8 @@ namespace CarDealership.ViewModel
         public async void DoLogin(object obj)
         {
             // Add a new User
-            User admin = new User("Bence", "kod");
-            User kisadmin = new User("Patrik", "kkk");
+            User admin = new User("Bence", "TheStar");
+            User kisadmin = new User("Jakub", "Cool");
 
             // Add the User to the collection
             _users.Add(admin);
@@ -80,11 +79,14 @@ namespace CarDealership.ViewModel
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        break; // What should happen when u logged in
+                        MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page"); // What should happen when u logged in
                     }
+                    //else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
+                    //{
+                    //    MessageBox.Show("Username or Password is incorrect!", "Login Page");
+                    //}
                 }
             }
-
         }
 
         //public async Task<ObservableCollection<User>> LoadDafaultData()

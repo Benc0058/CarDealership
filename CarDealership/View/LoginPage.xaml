@@ -22,13 +22,13 @@
 			HorizontalAlignment="Center"
 			Text="{Binding CurrentUser.UserName, Mode=TwoWay}"/>
 
-        <TextBox x:Name="Password"
+        <PasswordBox x:Name="Password"
 			PlaceholderText="Password"
 			Width="250"
 			Height="30"
 			HorizontalAlignment="Center"
 			Margin="0,100,0,0"
-			Text="{Binding CurrentUser.Password, Mode=TwoWay}"/>
+			Password="{Binding CurrentUser.Password, Mode=TwoWay}"/>
 
         <Button x:Name="Login"
 			Content="Log In"
