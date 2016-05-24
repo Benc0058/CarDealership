@@ -79,12 +79,14 @@ namespace CarDealership.ViewModel
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page"); // What should happen when u logged in
+                        MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page");
+                        break; // What should happen when u logged in
                     }
-                    //else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
-                    //{
-                    //    MessageBox.Show("Username or Password is incorrect!", "Login Page");
-                    //}
+                    else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
+                    {
+                        MessageBox.Show("Username or Password is incorrect!", "Login Page");
+                        break;
+                    }
                 }
             }
         }
