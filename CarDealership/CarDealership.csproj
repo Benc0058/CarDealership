@@ -103,10 +103,7 @@
     <Compile Include="Interfaces\Command.cs" />
     <Compile Include="Interfaces\CommandLogin.cs" />
     <Compile Include="Interfaces\MessageBox.cs" />
-    <Compile Include="Interfaces\NavigationHelper.cs" />
     <Compile Include="Interfaces\Notification.cs" />
-    <Compile Include="Interfaces\RelayCommand.cs" />
-    <Compile Include="Interfaces\SuspensionManager.cs" />
     <Compile Include="Model\Car.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\User.cs" />
