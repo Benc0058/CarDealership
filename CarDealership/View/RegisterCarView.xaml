@@ -14,12 +14,11 @@
 
 
     <Grid Background="#FFF38D8D" Margin="0,0,0,10">
-        <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
 
         <ListView x:Name="CarList"
 			Height="600"
-			ItemsSource="{Binding CarCollection}" Margin="414,55,229,55" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
+			ItemsSource="{Binding CarCollection}" Margin="410,110,439,0" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -72,6 +71,10 @@
             <TextBlock x:Name="Carid" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CarID" VerticalAlignment="Top" Width="84" Height="34"/>
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Selectedindex,Mode=TwoWay}" VerticalAlignment="Top" Width="84" Height="34"/>
             <Button x:Name="button" Content="DeleteCar" HorizontalAlignment="Left" Command="{Binding DeleteCar}" VerticalAlignment="Top"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="99" Margin="841,29,0,0" VerticalAlignment="Top" Width="379">
+            <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,29,0"/>
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,29,0"/>
         </StackPanel>
 
     </Grid>
