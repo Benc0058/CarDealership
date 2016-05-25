@@ -87,9 +87,8 @@ namespace CarDealership.ViewModel
                         Frame rootFrame = Window.Current.Content as Frame;
                         //if (rootFrame.Content == null)
                         //{
-                        OnPropertyChanged();
-                            rootFrame.Navigate(typeof(RegisterCarPage), user);
-                        OnPropertyChanged("RegisterCarPage");
+                        rootFrame = new Frame();
+                        rootFrame.Navigate(typeof(RegisterCarPage));
                             Window.Current.Content = rootFrame;
                             Window.Current.Activate();
                             
