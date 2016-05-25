@@ -25,6 +25,31 @@ namespace CarDealership.Model
             string text = "";
             text = text + "fdfddffd";
         }
+        public static string Invoicetext(Car car,Customer customer)
+        {
+            string text = "";
+            text += "Invoice\n";
+            text += "Car Information\n";
+            text += "Name: " + car.Name+ "\n";
+            text += "Brand : " + car.Brand + "\n";
+            text += "Color : " + car.Color + "\n";
+            text += "Year : " + Convert.ToString(car.Year) + "\n";
+            
+
+            text += "Customer Information\n";
+            text += "Name : " + customer.Name + "\n";
+            text += "Age : " + customer.Age + "\n";
+            text += "Adress : " + customer.Address + "\n";
+            text += "Phone number : " + Convert.ToString(customer.PhoneNumber) + "\n";
+            text += "CPR number : " + Convert.ToString(customer.CPRNumber) + "\n\n";
+           // text += "Price without tax :" + Convert.ToString(0.8 * car.Price) + " dkk\n";
+            text += "Price with tax :" + Convert.ToString(car.Price) + " dkk\n\n";
+            text += "Date : " + DateTime.Now.ToString("dd:mm:yy")+ "\n";
+            text += "Sold by Bence";
+            return text;
+
+
+        }
         public async void Save(string text)
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;

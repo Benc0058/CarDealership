@@ -18,7 +18,7 @@ namespace CarDealership.ViewModel
         // Instance Field
         private ObservableCollection<Customer> _customerCollection;
 
-        // Properties
+      
 
         public ObservableCollection<Customer> CustomerCollection
         {
@@ -29,7 +29,17 @@ namespace CarDealership.ViewModel
             }
             get { return _customerCollection; }
         }
-
+        private ObservableCollection<Car> _carCollection;
+      
+        public ObservableCollection<Car> CarCollection
+        {
+            set
+            {
+                _carCollection = value;
+                OnPropertyChanged();
+            }
+            get { return _carCollection; }
+        }
         public string name { set; get; }
         public int age { set; get; }
 
@@ -42,6 +52,7 @@ namespace CarDealership.ViewModel
         public string license { set; get; }
         public Customer selectedcustomer { set; get; }
         public Car selectedcar { set; get; }
+        public string invoicedetails { set;get; }
 
         // Commands
 
@@ -53,10 +64,10 @@ namespace CarDealership.ViewModel
         public InvoiceViewModel()
         {
             //  _carCatalog = new CarCatalog();
-
+            invoicedetails = "hello\n sfa";
             addCustomer = new Command(AddCustomer);
             createInvoice = new Command(CreateInvoice);
-
+            CarCollection = CarCatalog._carList;
             CustomerCollection = CustomerCatalog._customerList;
         }
 

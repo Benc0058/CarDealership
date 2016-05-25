@@ -32,5 +32,11 @@ namespace CarDealership.View
             CarCatalog.SelItem=CarList.SelectedIndex;
             CarCatalog._carList[CarList.SelectedIndex].Brand = "sdds";
         }
+
+        private void SelChanged(object sender, RoutedEventArgs e)
+        {
+            textBlock.Text = Convert.ToString(CarCatalog._carList[CarList.SelectedIndex].ID);
+            
         }
+    }
 }

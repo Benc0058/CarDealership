@@ -7,6 +7,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using CarDealership.Catalog;
+using CarDealership.Model;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -25,6 +27,24 @@ namespace CarDealership.View
         public InvoiceView()
         {
             this.InitializeComponent();
+        }
+        private void SelChanged(object sender, RoutedEventArgs e)
+        {
+            if (CarList.SelectedIndex != -1)
+            {
+                Car car = CarCatalog._carList[CarList.SelectedIndex];
+                Customer customer = CustomerCatalog._customerList[CustomerList.SelectedIndex];
+                textBlock.Text = Invoice.Invoicetext(car, customer);
+            }
+        }
+        private void SelChangedCustomer(object sender, RoutedEventArgs e)
+        {
+            if (CarList.SelectedIndex != -1)
+            {
+                Car car = CarCatalog._carList[CarList.SelectedIndex];
+                Customer customer = CustomerCatalog._customerList[CustomerList.SelectedIndex];
+                textBlock.Text = Invoice.Invoicetext(car, customer);
+            }
         }
     }
 }

@@ -19,7 +19,7 @@
 
         <ListView x:Name="CarList"
 			Height="600"
-			ItemsSource="{Binding CarCollection}" Margin="414,55,229,55" SelectedItem="{Binding SelectedCar}" SelectedIndex="{Binding Selectedindex}" CanDragItems="True">
+			ItemsSource="{Binding CarCollection}" Margin="414,55,229,55" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -68,9 +68,11 @@
             <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
             <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150"/>
         </StackPanel>
-        
-        <Button x:Name="button" Content="DeleteCar" HorizontalAlignment="Left" Command="{Binding DeleteCar}" Margin="294,160,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="294,197,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Height="112" Margin="1090,193,0,0" VerticalAlignment="Top" Width="104">
+            <TextBlock x:Name="Carid" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CarID" VerticalAlignment="Top" Width="84" Height="34"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Selectedindex,Mode=TwoWay}" VerticalAlignment="Top" Width="84" Height="34"/>
+            <Button x:Name="button" Content="DeleteCar" HorizontalAlignment="Left" Command="{Binding DeleteCar}" VerticalAlignment="Top"/>
+        </StackPanel>
 
     </Grid>
 </Page>

@@ -35,8 +35,35 @@ namespace CarDealership.ViewModel
         public int Year { set; get; }
         public string Comment { set; get; }
         public int Price { set; get; }
-        public Car SelectedCar { set; get; }
-        public int Selectedindex { set; get; }
+        private Car _selectedCar;
+        public Car SelectedCar
+        {
+            set
+            {
+                if (_selectedCar != value)
+                    _selectedCar = value;
+
+                OnPropertyChanged("_SelectedCar");
+            }
+        
+            get { return _selectedCar; }
+          
+        }
+        private int _selectedindex;
+        public int Selectedindex
+        {
+            set
+            {
+                if (_selectedindex != value)
+                    _selectedindex = value;
+
+            }
+            get
+            {
+                return _selectedindex;
+            }
+        }
+            
         // Commands
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
@@ -58,7 +85,7 @@ namespace CarDealership.ViewModel
         }
         public void Deletecar(object newItem)
         {
-            CarCatalog._carList[CarCatalog.SelItem].Brand = "sdds";
+            CarCollection.RemoveAt(Selectedindex);
         }
 
         public void DoCommand(object newItem)
