@@ -100,24 +100,33 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Catalog\CarCatalog.cs" />
+    <Compile Include="Catalog\CustomerCatalog.cs" />
     <Compile Include="Interfaces\Command.cs" />
     <Compile Include="Interfaces\CommandLogin.cs" />
     <Compile Include="Interfaces\MessageBox.cs" />
     <Compile Include="Interfaces\Notification.cs" />
     <Compile Include="Model\Car.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\Facade.cs" />
     <Compile Include="Persistency\UserFacade.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegisterCarViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\InvoiceView.xaml.cs">
+      <DependentUpon>InvoiceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RegisterCar.xaml.cs">
-      <DependentUpon>RegisterCar.xaml</DependentUpon>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterCarView.xaml.cs">
+      <DependentUpon>RegisterCarView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -143,11 +152,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\InvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RegisterCar.xaml">
+    <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegisterCarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

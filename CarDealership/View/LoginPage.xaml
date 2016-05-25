@@ -37,7 +37,7 @@
 			HorizontalAlignment="Center"
 			Margin="0,200,0,0"
 			Command="{Binding LoginCommand}"/>
-        
-        
+
+
     </Grid>
 </Page>

@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="CarDealership.View.InvoiceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CarDealership.View"
+    xmlns:ViewModel="using:CarDealership.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <ViewModel:InvoiceViewModel/>
+    </Page.DataContext>
+
+
+    <Grid Background="#FF59D435">
+
+        <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+
+        <ListView Width="350"
+			Height="600"
+			ItemsSource="{Binding CustomerCollection}" Margin="307,82,623,38">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="350"
+						Background="Brown"
+						Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Name:" Width="50"/>
+                            <TextBox Text="{Binding Name}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Age:" Width="50"/>
+                            <TextBox Text="{Binding Age}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Adress:" Width="50"/>
+                            <TextBox Text="{Binding Address}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Phone:" Width="50"/>
+                            <TextBox Text="{Binding PhoneNumber}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="CPR:" Width="50"/>
+                            <TextBox Text="{Binding CPRNumber}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="License:" Width="50"/>
+                            <TextBox Text="{Binding Licence}" Width="275"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="115,444,0,0" VerticalAlignment="Top" Width="129" Height="69" PlaceholderText="" Header="Select Customer">
+            <CheckBox Content="Existing Customer"/>
+            <CheckBox Content="NewCustomer"/>
+        </ComboBox>
+        <Button x:Name="button1" Content="CreateInvoice" HorizontalAlignment="Left" Command="{Binding createInvoice}" Margin="870,262,0,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Height="323" Margin="46,91,0,0" VerticalAlignment="Top" Width="214">
+            <TextBox Text="{Binding name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
+            <TextBox Text="{Binding age, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="age"/>
+            <TextBox Text="{Binding adress, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="adress"/>
+            <TextBox Text="{Binding phonenumber, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="phone"/>
+            <TextBox Text="{Binding cpr, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="cpr"/>
+            <TextBox Text="{Binding license, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="license"/>
+            <Button x:Name="button" Content="Addcustomer" Command="{Binding addCustomer}" HorizontalAlignment="Left" VerticalAlignment="Top "/>
+        </StackPanel>
+        
+
+    </Grid>
+</Page>
