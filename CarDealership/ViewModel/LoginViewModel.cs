@@ -83,52 +83,28 @@ namespace CarDealership.ViewModel
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
                         //MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page");
-                        //break; // What should happen when u logged in
                         Frame rootFrame = Window.Current.Content as Frame;
-                        //if (rootFrame.Content == null)
-                        //{
                         rootFrame = new Frame();
-                        rootFrame.Navigate(typeof(RegisterCarPage));
+                        rootFrame.Navigate(typeof(RegisterCarPage)); // if u want to send the user data just ,CurrentUser
                         Window.Current.Content = rootFrame;
                         Window.Current.Activate();
-                            
-                        
-                        //break;
+                        break;
                     }
                     else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
                     {
                         MessageBox.Show("Username or Password is incorrect!", "Login Page");
-                        OnPropertyChanged("rootFrame");                        //}
-                        //break;
+                        OnPropertyChanged("rootFrame");                 
+                        break;
                     }
                 }
             }
         }
 
         // Commands
+
         public async void DoLogin(object obj)
         {
-            //// Add a new User
-            //User admin = new User("Bence", "TheStar");
-            //User kisadmin = new User("Jakub", "Cool");
-
-            //// Add the User to the collection
-            //_users.Add(admin);
-            //_users.Add(kisadmin);
-
             CheckLogin();
         }
-        //public async Task<ObservableCollection<User>> LoadDafaultData()
-        //public async void LoadData()
-        //{
-        //    try
-        //    {
-        //        _users = await _facade.Load();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error is: " + ex, "Error");
-        //    }
-        //}
     }
 }
