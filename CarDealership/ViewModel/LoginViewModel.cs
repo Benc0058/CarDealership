@@ -89,8 +89,8 @@ namespace CarDealership.ViewModel
                         //{
                         rootFrame = new Frame();
                         rootFrame.Navigate(typeof(RegisterCarPage));
-                            Window.Current.Content = rootFrame;
-                            Window.Current.Activate();
+                        Window.Current.Content = rootFrame;
+                        Window.Current.Activate();
                             
                         
                         //break;
