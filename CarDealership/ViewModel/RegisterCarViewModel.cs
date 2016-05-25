@@ -8,21 +8,17 @@ using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using CarDealership.Model;
-using System.Runtime.Serialization;
-using CarDealership.Persistency;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+
 
 namespace CarDealership.ViewModel
 {
     public class RegisterCarViewModel : Notification
     {
         // Instance Field
-
-        private CarCatalog _carCatalog;
         private ObservableCollection<Car> _carCollection;
-        private Facade _facade;
-
         // Properties
-
         public ObservableCollection<Car> CarCollection
         {
             set
@@ -32,73 +28,73 @@ namespace CarDealership.ViewModel
             }
             get { return _carCollection; }
         }
-
         public int ID { set; get; }
-
         public string Name { set; get; }
-
         public string Brand { set; get; }
-
         public string Color { set; get; }
-
         public int Year { set; get; }
-
         public string Comment { set; get; }
-
+        public int Price { set; get; }
+        public Car SelectedCar { set; get; }
+        public int Selectedindex { set; get; }
         // Commands
-
         public Command AddCar { set; get; }
+        public Command DeleteCar { set; get; }
 
         // Constructor
 
         public RegisterCarViewModel()
         {
-            _carCatalog = new CarCatalog();
+            //  _carCatalog = new CarCatalog();
 
             AddCar = new Command(DoCommand);
+            DeleteCar = new Command(Deletecar);
 
-            CarCollection = new ObservableCollection<Car>();
 
-            _facade = new Facade();
+            CarCollection = CarCatalog._carList;
 
-            //_facade.Save(_carCollection);
-            
-            this.LoadData();
+
+            // Methods
         }
-
-        // Methods
+        public void Deletecar(object newItem)
+        {
+            CarCatalog._carList[CarCatalog.SelItem].Brand = "sdds";
+        }
 
         public void DoCommand(object newItem)
         {
-            int cmdId = ID;
-            string cmdName = Name;
-            string cmdBrand = Brand;
-            string cmdColor = Color;
-            int cmdYear = Year;
-            string cmdComment = Comment;
 
-            Car car = _carCatalog.CreatNewCar(cmdId, cmdName, cmdBrand, cmdColor, cmdYear, cmdComment);
+            //int cmdId = ID;
+            //string cmdName = Name;
+            //string cmdBrand = Brand;
+            //string cmdColor = Color;
+            //int cmdYear = Year;
+            //string cmdComment = Comment;
+            //int cmdPrice = Price;
+            if (Validate(Name, Brand, Color, Year, Price))
+            {
+                Car car = CarCatalog.CreatNewCar(Name, Brand, Color, Year, Comment, Price);
+            }
+            else
+            {
+                string k = "Missing data, the following lines need to be filled out \n Name \n Brand\n Color \n Year \n Price \n Additionaly, Price and Year must be numbers";
 
-            CarCollection.Add(car);
-            _facade.Save(_carCollection);
 
-            
+                MessageBox.Show(k, "Missing data");
+            }
+
 
         }
-
-        public async void LoadData()
+        public bool Validate(string name, string brand, string color, int year, int price)
         {
-            try
-            {
-                ObservableCollection<Car> car = await _facade.Load();
-
-                this._carCollection = car;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error is: " + ex,"Error");
-            }
-            
+            if (string.IsNullOrEmpty(name)) { return false; }
+            if (string.IsNullOrEmpty(brand)) { return false; }
+            if (string.IsNullOrEmpty(color)) { return false; }
+            if (year == 0) { return false; }
+            if (price == 0) { return false; }
+            return true;
         }
+
     }
 }
+

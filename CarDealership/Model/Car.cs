@@ -1,30 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-using Windows.Storage;
 using Windows.UI.Notifications;
 using CarDealership.Catalog;
+using System.Runtime.Serialization;
 
 namespace CarDealership.Model
 {
-    //[DataContract]
+
     public class Car
     {
         // Instance Field
+        static int idCount = 0;
         private int _id;
         private string _name;
         private string _brand;
         private string _color;
         private int _year;
         private string _comment;
-
+        private int _price;
+        // Constructor. It is not good to use the default Constructor because the data will be missing
+        public Car(string name, string brand, string color, int year, string comment, int price)
+        {
+            idCount++;
+            _id = idCount;
+            _name = name;
+            _brand = brand;
+            _color = color;
+            _year = year;
+            _comment = comment;
+            _price = price;
+        }
         // Properties
+        public int Price
+        {
+            set { _price = value; }
+            get { return _price; }
+        }
         public int ID
         {
             set { this._id = value; }

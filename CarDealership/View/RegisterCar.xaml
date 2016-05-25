@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="CarDealership.View.RegisterCar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CarDealership.View"
+    xmlns:ViewModel="using:CarDealership.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:RegisterCarViewModel/>
+    </Page.DataContext>
+
+
+    <Grid Background="#FFF38D8D" Margin="0,0,0,10">
+        <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+
+        <ListView x:Name="CarList"
+			Height="600"
+			ItemsSource="{Binding CarCollection}" Margin="414,55,229,55" SelectedItem="{Binding SelectedCar}" SelectedIndex="{Binding Selectedindex}" CanDragItems="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="350"
+						Background="Brown"
+						Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ID:" Width="50"/>
+                            <TextBox Text="{Binding ID}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Name:" Width="50"/>
+                            <TextBox Text="{Binding Name}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Brand:" Width="50"/>
+                            <TextBox Text="{Binding Brand}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Color:" Width="50"/>
+                            <TextBox Text="{Binding Color}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Comment:" Width="50"/>
+                            <TextBox Text="{Binding Comment}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Year:" Width="50"/>
+                            <TextBox Text="{Binding Year}" Width="275"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Price:" Width="50"/>
+                            <TextBox Text="{Binding Price}" Width="275"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Height="292" Margin="35,55,0,0" VerticalAlignment="Top" Width="187">
+            <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
+            <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
+            <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
+            <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
+            <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year"/>
+            <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
+            <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150"/>
+        </StackPanel>
+        
+        <Button x:Name="button" Content="DeleteCar" HorizontalAlignment="Left" Command="{Binding DeleteCar}" Margin="294,160,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="294,197,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
