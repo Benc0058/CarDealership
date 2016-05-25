@@ -35,6 +35,7 @@ namespace CarDealership.ViewModel
         public int Year { set; get; }
         public string Comment { set; get; }
         public int Price { set; get; }
+        public string searchforcar { set; get; }
         private Car _selectedCar;
         public Car SelectedCar
         {
@@ -50,7 +51,8 @@ namespace CarDealership.ViewModel
           
         }
         private int _selectedindex;
-        public int Selectedindex
+        public string imagepath { get; set; }
+        public int SelectedID
         {
             set
             {
@@ -67,15 +69,17 @@ namespace CarDealership.ViewModel
         // Commands
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
+        public Command searchCar { set; get; }
 
         // Constructor
 
         public RegisterCarViewModel()
         {
             //  _carCatalog = new CarCatalog();
-
+            imagepath = "C:\\Users\\Jacob\\Documents\\OpelAstra.jpg";
             AddCar = new Command(DoCommand);
             DeleteCar = new Command(Deletecar);
+            searchCar = new Command(SearchCar);
 
 
             CarCollection = CarCatalog._carList;
@@ -83,9 +87,13 @@ namespace CarDealership.ViewModel
 
             // Methods
         }
+        public void SearchCar(object newItem)
+        {
+            CarCatalog.SearchCar(searchforcar);
+        }
         public void Deletecar(object newItem)
         {
-            CarCollection.RemoveAt(Selectedindex);
+            CarCatalog.DeleteCarByID(SelectedID);
         }
 
         public void DoCommand(object newItem)

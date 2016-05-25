@@ -27,16 +27,18 @@ namespace CarDealership.View
         {
             this.InitializeComponent();
         }
-        private void CarList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarCatalog.SelItem=CarList.SelectedIndex;
-            CarCatalog._carList[CarList.SelectedIndex].Brand = "sdds";
-        }
+        //private void CarList_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    CarCatalog.SelItem=CarList.SelectedIndex;
+        //    CarCatalog._carList[CarList.SelectedIndex].Brand = "sdds";
+        //}
 
         private void SelChanged(object sender, RoutedEventArgs e)
         {
-            textBlock.Text = Convert.ToString(CarCatalog._carList[CarList.SelectedIndex].ID);
-            
+            if (CarList.SelectedIndex != -1)
+            {
+                textBlock.Text = Convert.ToString(CarCatalog._carList[CarList.SelectedIndex].ID);
+            }
         }
     }
 }

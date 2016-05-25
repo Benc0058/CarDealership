@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CarDealership.Interfaces;
+using CarDealership.Persistency;
+using CarDealership.Catalog;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,10 +25,13 @@ namespace CarDealership.View
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public string username;
+        Facade loading = new Facade();
         public MainPage()
         {
             this.InitializeComponent();
-
+            
+            loading.Load();
 
         }
 
@@ -43,6 +48,7 @@ namespace CarDealership.View
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(LoginPage));
+            loading.Save();
         }
     }
 }

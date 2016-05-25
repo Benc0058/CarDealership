@@ -13,7 +13,7 @@ namespace CarDealership.Model
     public class Car
     {
         // Instance Field
-        static int idCount = 0;
+       public static int idCount = 0;
         private int _id;
         private string _name;
         private string _brand;
@@ -32,6 +32,10 @@ namespace CarDealership.Model
             _year = year;
             _comment = comment;
             _price = price;
+        }
+        public Car()
+        {
+
         }
         // Properties
         public int Price

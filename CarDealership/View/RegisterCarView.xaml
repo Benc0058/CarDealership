@@ -18,7 +18,7 @@
 
         <ListView x:Name="CarList"
 			Height="600"
-			ItemsSource="{Binding CarCollection}" Margin="410,110,439,0" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
+			ItemsSource="{Binding CarCollection}" Margin="386,205,463,-95" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -52,13 +52,15 @@
                             <TextBlock Text="Price:" Width="50"/>
                             <TextBox Text="{Binding Price}" Width="275"/>
                         </StackPanel>
+                        
 
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
         <HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>
-        <StackPanel HorizontalAlignment="Left" Height="292" Margin="35,55,0,0" VerticalAlignment="Top" Width="187">
+        <StackPanel HorizontalAlignment="Left" Height="292" Margin="151,133,0,0" VerticalAlignment="Top" Width="187">
             <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
             <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
             <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
@@ -67,15 +69,18 @@
             <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
             <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="112" Margin="1090,193,0,0" VerticalAlignment="Top" Width="104">
+        <StackPanel HorizontalAlignment="Left" Height="112" Margin="1020,133,0,0" VerticalAlignment="Top" Width="104">
             <TextBlock x:Name="Carid" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CarID" VerticalAlignment="Top" Width="84" Height="34"/>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Selectedindex,Mode=TwoWay}" VerticalAlignment="Top" Width="84" Height="34"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding SelectedID,Mode=TwoWay}" VerticalAlignment="Top" Width="84" Height="34"/>
             <Button x:Name="button" Content="DeleteCar" HorizontalAlignment="Left" Command="{Binding DeleteCar}" VerticalAlignment="Top"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="99" Margin="841,29,0,0" VerticalAlignment="Top" Width="379">
-            <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,29,0"/>
-            <ComboBox x:Name="comboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,29,0"/>
+        <StackPanel HorizontalAlignment="Right" Height="152" Margin="0,76,371,482" VerticalAlignment="Top" Width="455" Orientation="Horizontal">
+            <TextBox PlaceholderText="Find Car" Width="250" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
+            <Button x:Name="button1" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100"/>
         </StackPanel>
+        
+       
+
 
     </Grid>
 </Page>

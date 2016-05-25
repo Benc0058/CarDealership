@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Windows.Storage;
 using CarDealership.Model;
+using CarDealership.Catalog;
 
 namespace CarDealership.Persistency
 {
@@ -16,7 +17,7 @@ namespace CarDealership.Persistency
         private ObservableCollection<Car> _listOfCars;
         private static string filename = "ListOfCar.txt";
 
-        public async void Save(ObservableCollection<Car> carCatalog)
+        public async void Save()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
             StorageFile file = await localFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
@@ -24,7 +25,8 @@ namespace CarDealership.Persistency
 
             using (Stream stream = await file.OpenStreamForWriteAsync())
             {
-                xmlSerializer.Serialize(stream, carCatalog);
+                xmlSerializer.Serialize(stream,CarCatalog._carList);
+             
             }
         }
         public async Task<ObservableCollection<Car>> Load()
@@ -36,7 +38,9 @@ namespace CarDealership.Persistency
             using (Stream stream = await file.OpenStreamForReadAsync())
             {
                 _listOfCars = xmlSerializer.Deserialize(stream) as ObservableCollection<Car>;
+               
             }
+            CarCatalog._carList = _listOfCars;
             return _listOfCars;
         }
 

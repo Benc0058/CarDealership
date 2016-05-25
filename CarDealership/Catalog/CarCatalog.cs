@@ -32,7 +32,7 @@ namespace CarDealership.Catalog
     static public class CarCatalog
     {
         // Instance Field
-        static public int SelItem = -1;
+        
         static public ObservableCollection<Car> _carList = new ObservableCollection<Car>();
 
         // Method
@@ -48,14 +48,44 @@ namespace CarDealership.Catalog
             return car;
 
         }
-        private static bool ListContains(Car car)
+        public static void DeleteCarByID(int id)
         {
-            bool contains = false;
+         
             foreach (Car i in _carList)
             {
-                if (i.Equals(car)) { contains = false; break; }
+                if (i.ID==id) { _carList.Remove(i); break; }
             }
-            return contains;
+           
+        }
+        public static void SearchCar(string text)
+        {
+            int k = 0;
+            for (int i = 0; i < _carList.Count; i++)
+            {
+                if (Convert.ToString(_carList[i].ID) == text)
+                {
+                    replace(i, k);k++;
+                }
+                if (Convert.ToString(_carList[i].Year) == text)
+                {
+                    replace(i, k);k++;
+                }
+                if (_carList[i].Name == text)
+                {
+                    replace(i, k);k++;
+                }
+                if (_carList[i].Brand == text)
+                {
+                    replace(i, k);k++;
+                }
+            }
+        }
+        
+        private static void replace(int a,int b)
+        {
+            Car car = _carList[a];
+            _carList[a] = _carList[b];
+            _carList[b] = car;
         }
     }
 }

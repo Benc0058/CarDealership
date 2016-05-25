@@ -14,12 +14,10 @@
 
     <Grid Background="#FF59D435">
 
-        <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-
 
         <ListView x:Name="CustomerList" Width="350"
 			Height="600"
-			ItemsSource="{Binding CustomerCollection}" SelectionChanged="SelChangedCustomer" Margin="211,82,719,38">
+			ItemsSource="{Binding CustomerCollection}" SelectionChanged="SelChangedCustomer" Margin="158,79,772,41">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -53,65 +51,70 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <ListView x:Name="CarList"
-			Height="600"
-			ItemsSource="{Binding CarCollection}" Margin="561,73,412,47" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Width="350"
-						Background="Brown"
-						Margin="5">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="ID:" Width="50"/>
-                            <TextBox Text="{Binding ID}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Name:" Width="50"/>
-                            <TextBox Text="{Binding Name}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Brand:" Width="50"/>
-                            <TextBox Text="{Binding Brand}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Color:" Width="50"/>
-                            <TextBox Text="{Binding Color}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Comment:" Width="50"/>
-                            <TextBox Text="{Binding Comment}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Year:" Width="50"/>
-                            <TextBox Text="{Binding Year}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Price:" Width="50"/>
-                            <TextBox Text="{Binding Price}" Width="275"/>
-                        </StackPanel>
-
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="115,444,0,0" VerticalAlignment="Top" Width="129" Height="69" PlaceholderText="" Header="Select Customer">
-            <CheckBox Content="Existing Customer"/>
-            <CheckBox Content="NewCustomer"/>
-        </ComboBox>
-        <Button x:Name="button1" Content="CreateInvoice" HorizontalAlignment="Left" Command="{Binding createInvoice}" Margin="1100,650,0,0" VerticalAlignment="Top"/>
-        <StackPanel HorizontalAlignment="Left" Height="323" Margin="46,91,0,0" VerticalAlignment="Top" Width="214">
+        <Button x:Name="button1" Content="CreateInvoice" HorizontalAlignment="Left" Command="{Binding createInvoice}" Margin="993,66,0,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Height="470" Margin="0,79,0,0" VerticalAlignment="Top" Width="164">
             <TextBox Text="{Binding name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
             <TextBox Text="{Binding age, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="age"/>
             <TextBox Text="{Binding adress, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="adress"/>
             <TextBox Text="{Binding phonenumber, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="phone"/>
+
             <TextBox Text="{Binding cpr, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="cpr"/>
             <TextBox Text="{Binding license, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="license"/>
             <Button x:Name="button" Content="Addcustomer" Command="{Binding addCustomer}" HorizontalAlignment="Left" VerticalAlignment="Top "/>
         </StackPanel>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="935,91,0,0" TextWrapping="Wrap" Text="{Binding invoicedetails}" VerticalAlignment="Top" Height="460" Width="275" Foreground="White"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="934,125,0,0" TextWrapping="Wrap" Text="{Binding invoicedetails}" VerticalAlignment="Top" Height="460" Width="275" Foreground="White"/>
+        <StackPanel HorizontalAlignment="Left" Height="628" Margin="508,20,0,0" Width="566" VerticalAlignment="Top">
+            <StackPanel HorizontalAlignment="Left" Height="32" Margin="20,0,0,0" VerticalAlignment="Top" Width="313" Orientation="Horizontal">
+                <TextBox PlaceholderText="Find Car" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
+                <Button x:Name="button10" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100"/>
+            </StackPanel>
+            <ListView x:Name="CarList"
+            	Height="600"
+            	ItemsSource="{Binding CarCollection}" Margin="0,0,168,0" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="350"
+            				Background="Brown"
+            				Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="ID:" Width="50"/>
+                                <TextBox Text="{Binding ID}" Width="275"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Name:" Width="50"/>
+                                <TextBox Text="{Binding Name}" Width="275"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Brand:" Width="50"/>
+                                <TextBox Text="{Binding Brand}" Width="275"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Color:" Width="50"/>
+                                <TextBox Text="{Binding Color}" Width="275"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Comment:" Width="50"/>
+                                <TextBox Text="{Binding Comment}" Width="275"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Year:" Width="50"/>
+                                <TextBox Text="{Binding Year}" Width="275"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Price:" Width="50"/>
+                                <TextBox Text="{Binding Price}" Width="275"/>
+                            </StackPanel>
 
 
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="32" Margin="190,29,0,0" VerticalAlignment="Top" Width="313" Orientation="Horizontal">
+            <TextBox PlaceholderText="Find Car" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
+            <Button x:Name="button11" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -65,11 +65,11 @@ namespace CarDealership.ViewModel
 
             // Add a new User
             User admin = new User("Bence", "TheStar");
-            //User kisadmin = new User("Jakub", "Cool");
+            User kisadmin = new User("Jakub", "Cool");
 
             // Add the User to the collection
             _users.Add(admin);
-            //_users.Add(kisadmin);
+            _users.Add(kisadmin);
 
         }
 

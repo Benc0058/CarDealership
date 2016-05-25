@@ -50,15 +50,23 @@ namespace CarDealership.Model
 
 
         }
-        public async void Save(string text)
+        public static async void Save(string text)
         {
-            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.CreateFileAsync("invoice.txt", CreationCollisionOption.ReplaceExisting);
-            Stream stream = await file.OpenStreamForWriteAsync();
-            using (StreamWriter writetext = new StreamWriter(stream))
-            {
-                writetext.WriteLine(text);
-            }
+            
+
+            
+            //string mydocpath =
+            //    Environment.Get
+
+            //// Write the string array to a new file named "WriteLines.txt".
+            //using (StreamWriter outputFile = new StreamWriter( @"\WriteLines.txt"))
+            //{
+                
+            //        outputFile.WriteLine(text);
+            //}
+
+
+
 
         }
     }

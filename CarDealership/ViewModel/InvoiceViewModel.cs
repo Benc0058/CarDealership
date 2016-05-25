@@ -53,32 +53,36 @@ namespace CarDealership.ViewModel
         public Customer selectedcustomer { set; get; }
         public Car selectedcar { set; get; }
         public string invoicedetails { set;get; }
+        public string searchforcar { set; get; }
 
         // Commands
 
         public Command addCustomer { set; get; }
         public Command createInvoice { set; get; }
+        public Command searchCar { set; get; }
 
         // Constructor
 
         public InvoiceViewModel()
         {
             //  _carCatalog = new CarCatalog();
-            invoicedetails = "hello\n sfa";
+            invoicedetails = "Select a Car and a Customer\n Invoice details will display here";
             addCustomer = new Command(AddCustomer);
             createInvoice = new Command(CreateInvoice);
+            searchCar = new Command(SearchCar);
             CarCollection = CarCatalog._carList;
             CustomerCollection = CustomerCatalog._customerList;
         }
 
         // Methods
-
+        public void SearchCar(object newItem)
+        {
+            CarCatalog.SearchCar(searchforcar);
+        }
         public void CreateInvoice(object newItem)
         {
-            selectedcar = CarCatalog._carList[1];
-            selectedcustomer = CustomerCatalog._customerList[1];
-            Invoice newinvoice = new Invoice(selectedcar, selectedcustomer);
-            newinvoice.printtofile();
+
+            Invoice.Save(invoicedetails);
 
         }
         public void AddCustomer(object newItem)
