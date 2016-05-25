@@ -37,10 +37,6 @@ namespace CarDealership.Persistency
             {
                 _listOfCars = xmlSerializer.Deserialize(stream) as ObservableCollection<Car>;
             }
-
-            
-            
-            
             return _listOfCars;
         }
 

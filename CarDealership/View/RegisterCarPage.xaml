@@ -4,8 +4,8 @@
     xmlns:local="using:CarDealership.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ViewModel="using:CarDealership.ViewModel"
     xmlns:interfaces="using:CarDealership.Interfaces"
+    xmlns:ViewModel="using:CarDealership.ViewModel"
     x:Class="CarDealership.View.RegisterCarPage"
     mc:Ignorable="d">
 
@@ -14,20 +14,19 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
-        <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150"/>
+        <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
         <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        
-        <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,400" PlaceholderText="Name"/>
-        <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,325" PlaceholderText="Brand"/>
-        <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,250" PlaceholderText="Color"/>
-        <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,175" PlaceholderText="Comment"/>
-        <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,100" PlaceholderText="Year"/>
+
+        <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,400" PlaceholderText="Name"/>
+        <TextBox Text="{Binding Brand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,325" PlaceholderText="Brand"/>
+        <TextBox Text="{Binding Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,250" PlaceholderText="Color"/>
+        <TextBox Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,175" PlaceholderText="Comment"/>
+        <TextBox Text="{Binding Year, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,100" PlaceholderText="Year"/>
 
 
         <ListView Width="350"
                   Height="600"
-                  ItemsSource="{Binding CarCollection}">
+                  ItemsSource="{Binding CarCollection, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -35,23 +34,23 @@
                                 Margin="5">
                         <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Name:" Width="50"/>
-                        <TextBox Text="{Binding Name}" Width="275"/>
+                            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Brand:" Width="50"/>
-                            <TextBox Text="{Binding Brand}" Width="275"/>
+                            <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Color:" Width="50"/>
-                            <TextBox Text="{Binding Color}" Width="275"/>
+                            <TextBox Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Comment:" Width="50"/>
-                            <TextBox Text="{Binding Comment}" Width="275"/>
+                            <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Year:" Width="50"/>
-                            <TextBox Text="{Binding Year}" Width="275"/>
+                            <TextBox Text="{Binding Year, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

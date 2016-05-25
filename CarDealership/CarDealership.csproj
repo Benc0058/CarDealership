@@ -108,7 +108,6 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\Facade.cs" />
-    <Compile Include="Persistency\UserFacade.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegisterCarViewModel.cs" />

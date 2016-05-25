@@ -65,11 +65,11 @@ namespace CarDealership.ViewModel
 
             // Add a new User
             User admin = new User("Bence", "TheStar");
-            User kisadmin = new User("Jakub", "Cool");
+            //User kisadmin = new User("Jakub", "Cool");
 
             // Add the User to the collection
             _users.Add(admin);
-            _users.Add(kisadmin);
+            //_users.Add(kisadmin);
 
         }
 
@@ -87,15 +87,19 @@ namespace CarDealership.ViewModel
                         Frame rootFrame = Window.Current.Content as Frame;
                         //if (rootFrame.Content == null)
                         //{
-
-                            rootFrame.Navigate(typeof(RegisterCarPage));
-                            OnPropertyChanged();                        
-                        //}
+                        OnPropertyChanged();
+                            rootFrame.Navigate(typeof(RegisterCarPage), user);
+                        OnPropertyChanged("RegisterCarPage");
+                            Window.Current.Content = rootFrame;
+                            Window.Current.Activate();
+                            
+                        
                         //break;
                     }
                     else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
                     {
                         MessageBox.Show("Username or Password is incorrect!", "Login Page");
+                        OnPropertyChanged("rootFrame");                        //}
                         //break;
                     }
                 }
