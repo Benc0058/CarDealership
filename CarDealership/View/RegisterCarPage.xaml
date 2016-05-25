@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModel="using:CarDealership.ViewModel"
     xmlns:interfaces="using:CarDealership.Interfaces"
-    x:Class="CarDealership.View.MainPage"
+    x:Class="CarDealership.View.RegisterCarPage"
     mc:Ignorable="d">
 
     <Page.DataContext>

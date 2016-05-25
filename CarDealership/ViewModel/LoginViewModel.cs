@@ -4,9 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using CarDealership.Interfaces;
 using CarDealership.Model;
 using CarDealership.Persistency;
+using CarDealership.View;
 
 namespace CarDealership.ViewModel
 {
@@ -17,6 +20,8 @@ namespace CarDealership.ViewModel
         private User _currentUser;
         //private UserFacade _facade;
         private ObservableCollection<User> _users;
+
+        public event EventHandler LoginCompleted;
 
 
         // Properties
@@ -53,18 +58,11 @@ namespace CarDealership.ViewModel
 
         public LoginViewModel()
         {
-
             CurrentUser = new User();
             LoginCommand = new CommandLogin(DoLogin);
             //_facade = new UserFacade();
             _users = new ObservableCollection<User>();
 
-        }
-
-        // Methods
-
-        public async void DoLogin(object obj)
-        {
             // Add a new User
             User admin = new User("Bence", "TheStar");
             User kisadmin = new User("Jakub", "Cool");
@@ -73,24 +71,50 @@ namespace CarDealership.ViewModel
             _users.Add(admin);
             _users.Add(kisadmin);
 
+        }
+
+        // Methods
+        public void CheckLogin()
+        {
             if (_users != null)
             {
                 foreach (var user in _users)
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page");
-                        break; // What should happen when u logged in
+                        //MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page");
+                        //break; // What should happen when u logged in
+                        Frame rootFrame = Window.Current.Content as Frame;
+                        //if (rootFrame.Content == null)
+                        //{
+
+                            rootFrame.Navigate(typeof(RegisterCarPage));
+                            OnPropertyChanged();                        
+                        //}
+                        //break;
                     }
                     else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
                     {
                         MessageBox.Show("Username or Password is incorrect!", "Login Page");
-                        break;
+                        //break;
                     }
                 }
             }
         }
 
+        // Commands
+        public async void DoLogin(object obj)
+        {
+            //// Add a new User
+            //User admin = new User("Bence", "TheStar");
+            //User kisadmin = new User("Jakub", "Cool");
+
+            //// Add the User to the collection
+            //_users.Add(admin);
+            //_users.Add(kisadmin);
+
+            CheckLogin();
+        }
         //public async Task<ObservableCollection<User>> LoadDafaultData()
         //public async void LoadData()
         //{

@@ -9,6 +9,8 @@ using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using CarDealership.Model;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using CarDealership.Persistency;
 
 namespace CarDealership.ViewModel
@@ -60,9 +62,8 @@ namespace CarDealership.ViewModel
             CarCollection = new ObservableCollection<Car>();
 
             _facade = new Facade();
-
             //_facade.Save(_carCollection);
-            
+
             this.LoadData();
         }
 
@@ -93,6 +94,7 @@ namespace CarDealership.ViewModel
                 ObservableCollection<Car> car = await _facade.Load();
 
                 this._carCollection = car;
+
             }
             catch (Exception ex)
             {
