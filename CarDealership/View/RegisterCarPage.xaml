@@ -64,42 +64,42 @@
 
                 <ListView x:Name="CarList"
 			Height="600"
-			ItemsSource="{Binding CarCollection}" Margin="395,126,454,-6" SelectedItem="{Binding SelectedCar,Mode=TwoWay}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True" >
+			ItemsSource="{Binding CarCollection}" Margin="395,126,356,-6" SelectedItem="{Binding SelectedCar,Mode=TwoWay}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Width="350"
-						Background="Brown"
+                            <StackPanel Width="380"
+						Background="#32BEA6"
 						Margin="5">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="#32BEA6">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="#32BEA6" BorderThickness="0">
                                     <Image x:Name="image" Height="150" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Source="{Binding ImagePath,Mode=TwoWay}" />
                                     <StackPanel Orientation="Vertical">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="ID:" Width="50"/>
-                                            <TextBox Text="{Binding ID}" Width="275"/>
+                                            <TextBox Text="{Binding ID}" Width="100"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Name:" Width="50"/>
-                                            <TextBox Text="{Binding Name}" Width="275"/>
+                                            <TextBox Text="{Binding Name}" Width="150"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Brand:" Width="50"/>
-                                            <TextBox Text="{Binding Brand}" Width="275"/>
+                                            <TextBox Text="{Binding Brand}" Width="150"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Color:" Width="50"/>
-                                            <TextBox Text="{Binding Color}" Width="275"/>
+                                            <TextBox Text="{Binding Color}" Width="150"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Comment:" Width="50"/>
-                                            <TextBox Text="{Binding Comment}" Width="275"/>
+                                            <TextBox Text="{Binding Comment}" Width="150"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Year:" Width="50"/>
-                                            <TextBox Text="{Binding Year}" Width="275"/>
+                                            <TextBox Text="{Binding Year}" Width="150"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Price:" Width="50"/>
-                                            <TextBox Text="{Binding Price}" Width="275"/>
+                                            <TextBox Text="{Binding Price}" Width="150"/>
                                         </StackPanel>
                                     </StackPanel>
 

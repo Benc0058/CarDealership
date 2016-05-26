@@ -63,7 +63,7 @@
                 </Grid.DataContext>
                 <ListView x:Name="CustomerList" Width="350"
 			Height="600"
-			ItemsSource="{Binding CustomerCollection}" Margin="272,48,658,72" SelectedItem="{Binding selectedcustomer,Mode=TwoWay}">
+			ItemsSource="{Binding CustomerCollection}" Margin="190,110,690,10" SelectedItem="{Binding selectedcustomer,Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Width="350"
@@ -98,7 +98,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Button x:Name="button1" Content="CreateInvoice" HorizontalAlignment="Left" Command="{Binding createInvoice}" Margin="993,66,0,0" VerticalAlignment="Top" Background="#32BEA6"/>
-                <StackPanel HorizontalAlignment="Left" Height="470" Margin="103,81,0,0" VerticalAlignment="Top" Width="164">
+                <StackPanel HorizontalAlignment="Left" Height="470" Margin="26,61,0,0" VerticalAlignment="Top" Width="164">
                     <TextBox Text="{Binding name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
                     <TextBox Text="{Binding age, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="age"/>
                     <TextBox Text="{Binding adress, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="adress"/>
@@ -116,12 +116,12 @@
                     </StackPanel>
                     <ListView x:Name="CarList"
             	Height="600"
-            	ItemsSource="{Binding CarCollection}" Margin="0,0,168,0" SelectedItem="{Binding selectedcar,Mode=TwoWay}" SelectedIndex="{Binding Selectedindex}" Header="" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
+            	ItemsSource="{Binding CarCollection}" Margin="0,0,168,0" SelectedItem="{Binding selectedcar, Mode=TwoWay}" SelectedIndex="{Binding Selectedindex}" Header="" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="350"
             				
-            				Margin="5" Background="#32BEA6">
+                            		Margin="5" Background="#32BEA6">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="ID:" Width="50"/>
                                         <TextBox Text="{Binding ID, Mode=TwoWay}" Width="275"/>
