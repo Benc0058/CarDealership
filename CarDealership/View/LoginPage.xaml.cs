@@ -28,6 +28,8 @@ namespace CarDealership.View
         public LoginPage()
         {
             this.InitializeComponent();
+
+            // Here we can change the color of the Title Bar
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
             // Title Bar Content Area
