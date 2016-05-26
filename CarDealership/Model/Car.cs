@@ -13,6 +13,7 @@ namespace CarDealership.Model
     public class Car
     {
         // Instance Field
+
         public static int idCount = 0;
         private int _id;
         private string _name;
@@ -22,7 +23,9 @@ namespace CarDealership.Model
         private string _comment;
         private string _price;
         private string _imagepath;
+
         // Constructor. It is not good to use the default Constructor because the data will be missing
+
         public Car(string name, string brand, string color, string year, string comment, string price, string imagepath)
         {
             idCount++;
@@ -35,21 +38,25 @@ namespace CarDealership.Model
             _price = price;
             _imagepath = imagepath;
         }
+
         public Car()
         {
 
         }
         // Properties
+
         public string ImagePath
         {
             set { _imagepath = value; }
             get { return _imagepath; }
         }
+
         public string Price
         {
             set { _price = value; }
             get { return _price; }
         }
+
         public int ID
         {
             set { this._id = value; }
