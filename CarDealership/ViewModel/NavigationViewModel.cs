@@ -13,11 +13,13 @@ namespace CarDealership.ViewModel
     public class NavigationViewModel
     {
         // Properties
+
         public Command NavigateToCarCommand { set; get; }
         public Command NavigateToCustomer { set; get; }
         public Command LogOutCommand { set; get; }
 
         // Constructor
+
         public NavigationViewModel()
         {
             NavigateToCarCommand = new Command(GoCar);
@@ -26,11 +28,12 @@ namespace CarDealership.ViewModel
         }
 
         //Commands
+
         public void GoCar(object obj)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame = new Frame();
-            rootFrame.Navigate(typeof(RegisterCarPage)); // if u want to send the user data just ,CurrentUser
+            rootFrame.Navigate(typeof(RegisterCarPage)); // if u want to send the user data just , CurrentUser
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
         }
@@ -48,7 +51,7 @@ namespace CarDealership.ViewModel
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame = new Frame();
-            rootFrame.Navigate(typeof(LoginPage)); // if u want to send the user data just ,CurrentUser
+            rootFrame.Navigate(typeof(LoginPage)); // if u want to send the user data just , CurrentUser
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
         }

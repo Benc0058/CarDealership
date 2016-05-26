@@ -18,7 +18,6 @@ namespace CarDealership.ViewModel
         // Interface Field
 
         private User _currentUser;
-        //private UserFacade _facade;
         private ObservableCollection<User> _users;
 
         // Properties
@@ -75,6 +74,7 @@ namespace CarDealership.ViewModel
         }
 
         // Methods
+
         public void CheckLogin()
         {
             bool loginStatus = false;

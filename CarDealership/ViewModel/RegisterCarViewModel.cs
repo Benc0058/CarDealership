@@ -47,8 +47,6 @@ namespace CarDealership.ViewModel
 
         public string Comment { set; get; }
 
-        // Commands
-
         public Command AddCar { set; get; }
 
         // Constructor
@@ -67,7 +65,7 @@ namespace CarDealership.ViewModel
             this.LoadData();
         }
 
-        // Methods
+        // Commands
 
         public void DoCommand(object newItem)
         {

@@ -13,10 +13,10 @@ using CarDealership.Catalog;
 
 namespace CarDealership.Model
 {
-    //[DataContract]
     public class Car
     {
         // Instance Field
+
         private int _id;
         private string _name;
         private string _brand;
@@ -25,6 +25,7 @@ namespace CarDealership.Model
         private string _comment;
 
         // Properties
+
         public int ID
         {
             set { this._id = value; }
