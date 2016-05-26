@@ -28,6 +28,10 @@ namespace CarDealership.Model
             _cprNumber = cpr;
             _licence = license;
         }
+        public Customer()
+        {
+
+        }
         public string Name
         {
             set { _name = value; }

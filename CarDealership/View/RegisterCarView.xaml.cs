@@ -26,7 +26,7 @@ namespace CarDealership.View
         public RegisterCar()
         {
             this.InitializeComponent();
-            framemenu.Navigate(typeof(Menu));
+           
         }
  
     }

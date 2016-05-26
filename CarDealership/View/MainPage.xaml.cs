@@ -32,6 +32,7 @@ namespace CarDealership.View
             this.InitializeComponent();
             
             loading.Load();
+            loading.LoadCustomer();
 
         }
 
@@ -49,6 +50,7 @@ namespace CarDealership.View
         {
             Frame.Navigate(typeof(LoginPage));
             loading.Save();
+            loading.SaveCustomer();
         }
 
         private void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
