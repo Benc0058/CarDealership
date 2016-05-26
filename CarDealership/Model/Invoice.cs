@@ -50,18 +50,9 @@ namespace CarDealership.Model
         }
         public static async void Save(string text)
         {
-            
 
-            
-            //string mydocpath =
-            //    Environment.Get
 
-            //// Write the string array to a new file named "WriteLines.txt".
-            //using (StreamWriter outputFile = new StreamWriter( @"\WriteLines.txt"))
-            //{
-                
-            //        outputFile.WriteLine(text);
-            //}
+         
 
 
 
