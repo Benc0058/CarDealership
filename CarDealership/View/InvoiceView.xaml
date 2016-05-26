@@ -59,7 +59,7 @@
             </SplitView.Pane>
             <Grid>
                 <Grid.DataContext>
-                    <ViewModel:RegisterCarViewModel/>
+                    <ViewModel:InvoiceViewModel/>
                 </Grid.DataContext>
                 <ListView x:Name="CustomerList" Width="350"
 			Height="600"
