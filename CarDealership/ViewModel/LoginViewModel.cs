@@ -53,7 +53,6 @@ namespace CarDealership.ViewModel
         {
             CurrentUser = new User();
             LoginCommand = new CommandLogin(DoLogin);
-            //_facade = new UserFacade();
             _users = new ObservableCollection<User>();
 
             // Add a new User

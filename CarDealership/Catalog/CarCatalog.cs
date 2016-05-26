@@ -12,9 +12,11 @@ namespace CarDealership.Catalog
     public class CarCatalog
     {
         // Instance Field
+
         private List<Car> _carList;
 
         // Method
+
         public Car CreatNewCar(int id, string name, string brand, string color, int year, string comment)
         {
             _carList = new List<Car>();
