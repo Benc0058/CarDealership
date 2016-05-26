@@ -62,12 +62,16 @@ namespace CarDealership.ViewModel
             User jakub = new User("Jakub", "Cool");
             User mohamed = new User("Mohamed", "TheTeacer");
             User zuhair = new User("Zuhair", "mod");
+            User wen = new User("Wen", "DaBoy");
+            User abdul = new User("Abdul", "TheMan");
 
             // Add the User to the collection
             _users.Add(bence);
             _users.Add(jakub);
             _users.Add(mohamed);
             _users.Add(zuhair);
+            _users.Add(wen);
+            _users.Add(abdul);
         }
 
         // Methods
