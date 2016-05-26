@@ -27,34 +27,34 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                             <Image x:Name="image" Height="150" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Source="{Binding ImagePath,Mode=TwoWay}" />
                             <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="ID:" Width="50"/>
-                            <TextBox Text="{Binding ID}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Name:" Width="50"/>
-                            <TextBox Text="{Binding Name}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Brand:" Width="50"/>
-                            <TextBox Text="{Binding Brand}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Color:" Width="50"/>
-                            <TextBox Text="{Binding Color}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Comment:" Width="50"/>
-                            <TextBox Text="{Binding Comment}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Year:" Width="50"/>
-                            <TextBox Text="{Binding Year}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Price:" Width="50"/>
-                            <TextBox Text="{Binding Price}" Width="275"/>
-                        </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="ID:" Width="50"/>
+                                    <TextBox Text="{Binding ID}" Width="275"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Name:" Width="50"/>
+                                    <TextBox Text="{Binding Name}" Width="275"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Brand:" Width="50"/>
+                                    <TextBox Text="{Binding Brand}" Width="275"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Color:" Width="50"/>
+                                    <TextBox Text="{Binding Color}" Width="275"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Comment:" Width="50"/>
+                                    <TextBox Text="{Binding Comment}" Width="275"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Year:" Width="50"/>
+                                    <TextBox Text="{Binding Year}" Width="275"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Price:" Width="50"/>
+                                    <TextBox Text="{Binding Price}" Width="275"/>
+                                </StackPanel>
                             </StackPanel>
 
                         </StackPanel>
@@ -68,10 +68,10 @@
         <StackPanel HorizontalAlignment="Left" Height="292" Margin="250,160,0,0" VerticalAlignment="Top" Width="187">
             <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
             <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
-            <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
-            <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
             <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year"/>
+            <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
             <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
+            <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
             <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image Name"/>
             <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150"/>
         </StackPanel>
@@ -84,8 +84,6 @@
             <TextBox PlaceholderText="Find Car" Width="250" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
             <Button x:Name="button1" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100"/>
         </StackPanel>
-        
-        <Frame x:Name="framemenu" Content="Frame" HorizontalAlignment="Left" Height="698" Margin="6,0,0,0" VerticalAlignment="Top" Width="150"/>
 
 
 
