@@ -97,22 +97,39 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button x:Name="button1" Content="CreateInvoice" HorizontalAlignment="Left" Command="{Binding createInvoice}" Margin="993,66,0,0" VerticalAlignment="Top" Background="#32BEA6"/>
+                <Button x:Name="CreatInvoice" 
+                        Content="CreateInvoice" 
+                        HorizontalAlignment="Left" 
+                        Command="{Binding createInvoice}"
+                        Margin="993,66,0,0" 
+                        VerticalAlignment="Top" 
+                        Background="#32BEA6"/>
                 <StackPanel HorizontalAlignment="Left" Height="470" Margin="26,61,0,0" VerticalAlignment="Top" Width="164">
                     <TextBox Text="{Binding name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
                     <TextBox Text="{Binding age, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="age"/>
                     <TextBox Text="{Binding adress, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="adress"/>
                     <TextBox Text="{Binding phonenumber, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="phone"/>
-
                     <TextBox Text="{Binding cpr, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="cpr"/>
                     <TextBox Text="{Binding license, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="license"/>
-                    <Button x:Name="button" Content="Addcustomer" Command="{Binding addCustomer}" HorizontalAlignment="Left" VerticalAlignment="Top " Background="#32BEA6"/>
+                    <Button x:Name="AddCustomer" 
+                            Content="Addcustomer" 
+                            Command="{Binding addCustomer}" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top " 
+                            Background="#32BEA6"/>
                 </StackPanel>
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="934,125,0,0" TextWrapping="Wrap" Text="{Binding invoicetext, Mode=TwoWay}" VerticalAlignment="Top" Height="460" Width="275" Foreground="White"/>
                 <StackPanel HorizontalAlignment="Left" Height="628" Margin="508,20,0,0" Width="566" VerticalAlignment="Top">
                     <StackPanel HorizontalAlignment="Left" Height="32" Margin="20,0,0,0" VerticalAlignment="Top" Width="313" Orientation="Horizontal">
                         <TextBox PlaceholderText="Find Car" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
-                        <Button x:Name="button10" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100" Background="#32BEA6"/>
+                        <Button x:Name="SearchCar" 
+                                Content="Search" 
+                                HorizontalAlignment="Stretch" 
+                                Command="{Binding searchCar}" 
+                                VerticalAlignment="Top"
+                                Height="28" 
+                                Width="100" 
+                                Background="#32BEA6"/>
                     </StackPanel>
                     <ListView x:Name="CarList"
             	Height="600"
@@ -150,9 +167,6 @@
                                         <TextBlock Text="Price:" Width="50"/>
                                         <TextBox Text="{Binding Price}" Width="275"/>
                                     </StackPanel>
-
-
-
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -160,7 +174,14 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="32" Margin="190,29,0,0" VerticalAlignment="Top" Width="313" Orientation="Horizontal">
                     <TextBox PlaceholderText="Find Customer" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcustomer, Mode=TwoWay}"/>
-                    <Button x:Name="button11" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCustomer}" VerticalAlignment="Top" Height="28" Width="100" Background="#32BEA6"/>
+                    <Button x:Name="SearchCustomer" 
+                            Content="Search"
+                            HorizontalAlignment="Stretch" 
+                            Command="{Binding searchCustomer}" 
+                            VerticalAlignment="Top" 
+                            Height="28" 
+                            Width="100" 
+                            Background="#32BEA6"/>
                 </StackPanel>
             </Grid>
         </SplitView>
