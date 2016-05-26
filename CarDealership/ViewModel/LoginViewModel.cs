@@ -23,7 +23,6 @@ namespace CarDealership.ViewModel
 
         public event EventHandler LoginCompleted;
 
-
         // Properties
 
         public User CurrentUser
@@ -39,10 +38,7 @@ namespace CarDealership.ViewModel
             get { return _currentUser; }
         }
 
-        public CommandLogin LoginCommand
-        {
-            get; set;
-        }
+        public CommandLogin LoginCommand { get; set; }
 
         public ObservableCollection<User> Users
         {
@@ -64,43 +60,50 @@ namespace CarDealership.ViewModel
             _users = new ObservableCollection<User>();
 
             // Add a new User
-            User admin = new User("Bence", "TheStar");
-            //User kisadmin = new User("Jakub", "Cool");
+            User bence = new User("Bence", "TheStar");
+            User jakub = new User("Jakub", "Cool");
+            User mohamed = new User("Mohamed", "TheTeacer");
+            User zuhair = new User("Zuhair", "mod");
 
             // Add the User to the collection
-            _users.Add(admin);
-            //_users.Add(kisadmin);
-
+            _users.Add(bence);
+            _users.Add(jakub);
+            _users.Add(mohamed);
+            _users.Add(zuhair);
         }
 
         // Methods
         public void CheckLogin()
         {
+            bool a = false;
             if (_users != null)
             {
                 foreach (var user in _users)
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        MessageBox.Show("You successfully logged into the CarDealership's system!", "Hey " + CurrentUser.UserName);
+                        a = true;
+                        MessageBox.Show("Logged into the Car Dealership's system!", CurrentUser.UserName);
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame = new Frame();
-                        rootFrame.Navigate(typeof(RegisterCarPage)); // if u want to send the user data just ,CurrentUser
+                        rootFrame.Navigate(typeof (RegisterCarPage)); // if u want to send the user data just ,CurrentUser
                         Window.Current.Content = rootFrame;
                         Window.Current.Activate();
                         break;
                     }
-                    else if ((user.UserName != CurrentUser.UserName) || (user.Password != CurrentUser.Password))
-                    {
-                        MessageBox.Show("Username or Password is incorrect!", "Login Page");
-                        OnPropertyChanged("rootFrame");                 
-                        break;
-                    }
+                }
+                if (a == false)
+                {
+                    MessageBox.Show("Username or Password is incorrect!", "Excuse us" + CurrentUser.UserName);
                 }
             }
         }
+    
 
-        // Commands
+
+
+
+// Commands
 
         public async void DoLogin(object obj)
         {
