@@ -21,8 +21,6 @@ namespace CarDealership.ViewModel
         //private UserFacade _facade;
         private ObservableCollection<User> _users;
 
-        public event EventHandler LoginCompleted;
-
         // Properties
 
         public User CurrentUser
@@ -75,15 +73,15 @@ namespace CarDealership.ViewModel
         // Methods
         public void CheckLogin()
         {
-            bool LoginStatus = false;
+            bool loginStatus = false;
             if (_users != null)
             {
                 foreach (var user in _users)
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        LoginStatus = true;
-                        MessageBox.Show("Logged into the Car Dealership's system!", CurrentUser.UserName);
+                        loginStatus = true;
+                        MessageBox.Show("You logged into the Car Dealership's system.", "Hi, " + CurrentUser.UserName + "!");
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame = new Frame();
                         rootFrame.Navigate(typeof (RegisterCarPage)); // if u want to send the user data just ,CurrentUser
@@ -92,18 +90,14 @@ namespace CarDealership.ViewModel
                         break;
                     }
                 }
-                if (LoginStatus == false)
+                if (loginStatus == false)
                 {
-                    MessageBox.Show("Username or Password is incorrect!", "Excuse us" + CurrentUser.UserName);
+                    MessageBox.Show("Username or Password is incorrect!", "Excuse us, " + CurrentUser.UserName);
                 }
             }
         }
-    
 
-
-
-
-// Commands
+        // Commands
 
         public async void DoLogin(object obj)
         {
