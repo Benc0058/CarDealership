@@ -75,14 +75,14 @@ namespace CarDealership.ViewModel
         // Methods
         public void CheckLogin()
         {
-            bool a = false;
+            bool LoginStatus = false;
             if (_users != null)
             {
                 foreach (var user in _users)
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        a = true;
+                        LoginStatus = true;
                         MessageBox.Show("Logged into the Car Dealership's system!", CurrentUser.UserName);
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame = new Frame();
@@ -92,7 +92,7 @@ namespace CarDealership.ViewModel
                         break;
                     }
                 }
-                if (a == false)
+                if (LoginStatus == false)
                 {
                     MessageBox.Show("Username or Password is incorrect!", "Excuse us" + CurrentUser.UserName);
                 }
