@@ -42,7 +42,7 @@
 							    Width="50" 
                                 Height="50" 
                                 Background="Transparent"
-                                Command="{Binding }"/>
+                                Command="{Binding NavigateToCustomer}"/>
                         <TextBlock Text="Customers" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -62,48 +62,74 @@
                     <ViewModel:RegisterCarViewModel/>
                 </Grid.DataContext>
 
-                <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
-        <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <ListView x:Name="CarList"
+			Height="600"
+			ItemsSource="{Binding CarCollection}" Margin="395,126,454,-6" SelectedItem="{Binding SelectedCar,Mode=TwoWay}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="350"
+						Background="Brown"
+						Margin="5">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="#32BEA6">
+                                    <Image x:Name="image" Height="150" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Source="{Binding ImagePath,Mode=TwoWay}" />
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="ID:" Width="50"/>
+                                            <TextBox Text="{Binding ID}" Width="275"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Name:" Width="50"/>
+                                            <TextBox Text="{Binding Name}" Width="275"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Brand:" Width="50"/>
+                                            <TextBox Text="{Binding Brand}" Width="275"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Color:" Width="50"/>
+                                            <TextBox Text="{Binding Color}" Width="275"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Comment:" Width="50"/>
+                                            <TextBox Text="{Binding Comment}" Width="275"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Year:" Width="50"/>
+                                            <TextBox Text="{Binding Year}" Width="275"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Price:" Width="50"/>
+                                            <TextBox Text="{Binding Price}" Width="275"/>
+                                        </StackPanel>
+                                    </StackPanel>
 
-        <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,400" PlaceholderText="Name"/>
-        <TextBox Text="{Binding Brand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,325" PlaceholderText="Brand"/>
-        <TextBox Text="{Binding Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,250" PlaceholderText="Color"/>
-        <TextBox Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,175" PlaceholderText="Comment"/>
-        <TextBox Text="{Binding Year, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,100" PlaceholderText="Year"/>
+                                </StackPanel>
 
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-        <ListView Width="350"
-                  Height="600"
-                  ItemsSource="{Binding CarCollection, UpdateSourceTrigger=PropertyChanged}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Width="350"
-                                Background="Brown"
-                                Margin="5">
-                        <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Name:" Width="50"/>
-                            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Brand:" Width="50"/>
-                            <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Color:" Width="50"/>
-                            <TextBox Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Comment:" Width="50"/>
-                            <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Year:" Width="50"/>
-                            <TextBox Text="{Binding Year, UpdateSourceTrigger=PropertyChanged}" Width="275"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>
+                <StackPanel HorizontalAlignment="Left" Height="292" Margin="156,113,0,0" VerticalAlignment="Top" Width="187">
+                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
+                    <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
+                    <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year"/>
+                    <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
+                    <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
+                    <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
+                    <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image Name"/>
+                    <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150" Background="#32BEA6"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="112" Margin="936,247,0,0" VerticalAlignment="Top" Width="104">
+
+                    <Button x:Name="button" Content="DeleteCar" HorizontalAlignment="Left" Command="{Binding DeleteCar,Mode=TwoWay}" VerticalAlignment="Top" Background="#32BEA6"/>
+                    <Button x:Name="button2" Content="CreateInvoice" HorizontalAlignment="Stretch" Command="{Binding CreateInvoiceWithSelectedCar,Mode=TwoWay}" VerticalAlignment="Stretch" Background="#32BEA6"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Height="64" Margin="0,71,367,0" VerticalAlignment="Top" Width="437" Orientation="Horizontal">
+                    <TextBox PlaceholderText="Find Car" Width="250" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
+                    <Button x:Name="button1" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100" Background="#32BEA6"/>
+                </StackPanel>
             </Grid>
         </SplitView>
 

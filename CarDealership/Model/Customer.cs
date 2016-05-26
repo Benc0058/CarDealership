@@ -13,13 +13,25 @@ namespace CarDealership.Model
         private string _name;
         private int _age;
         private string _car;
-        private string _address;
+        private string _adress;
         private string _phoneNumber;
         private string _cprNumber;
         private string _licence;
 
         // Properties
+        public Customer(string name, int age, string adress, string phonenumber, string cpr, string license)
+        {
+            _name = name;
+            _age = age;
+            _adress = adress;
+            _phoneNumber = phonenumber;
+            _cprNumber = cpr;
+            _licence = license;
+        }
+        public Customer()
+        {
 
+        }
         public string Name
         {
             set { _name = value; }
@@ -40,8 +52,8 @@ namespace CarDealership.Model
 
         public string Address
         {
-            set { _address = value; }
-            get { return _address; }
+            set { _adress = value; }
+            get { return _adress; }
         }
 
         public string PhoneNumber

@@ -7,6 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using CarDealership.Interfaces;
 using CarDealership.View;
+using CarDealership.Persistency;
 
 namespace CarDealership.ViewModel
 {
@@ -23,7 +24,7 @@ namespace CarDealership.ViewModel
         public NavigationViewModel()
         {
             NavigateToCarCommand = new Command(GoCar);
-            //NavigateToCustomer = new Command(GoCustomer);
+            NavigateToCustomer = new Command(GoCustomer);
             LogOutCommand = new Command(LogOut);
         }
 
@@ -38,17 +39,20 @@ namespace CarDealership.ViewModel
             Window.Current.Activate();
         }
 
-        //public void GoCustomer(object obj)
-        //{
-        //    Frame rootFrame = Window.Current.Content as Frame;
-        //    rootFrame = new Frame();
-        //    rootFrame.Navigate(typeof()); // if u want to send the user data just ,CurrentUser
-        //    Window.Current.Content = rootFrame;
-        //    Window.Current.Activate();
-        //}
+        public void GoCustomer(object obj)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame = new Frame();
+            rootFrame.Navigate(typeof(InvoiceView)); // if u want to send the user data just ,CurrentUser
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
+        }
 
         public void LogOut(object obj)
         {
+            Facade a = new Facade();
+            a.Save();
+            a.SaveCustomer();
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame = new Frame();
             rootFrame.Navigate(typeof(LoginPage)); // if u want to send the user data just , CurrentUser
