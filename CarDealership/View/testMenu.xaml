@@ -10,7 +10,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
-               CompactPaneLength="50" OpenPaneLength="150"> <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
+               CompactPaneLength="50" OpenPaneLength="150">
+            <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
             <SplitView.Pane>
                 <StackPanel Background="Gray">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
@@ -38,7 +39,6 @@
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </SplitView.Content>
-            </SplitView>
-
+        </SplitView>
     </Grid>
 </Page>
