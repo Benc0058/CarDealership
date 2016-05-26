@@ -82,7 +82,7 @@ namespace CarDealership.ViewModel
                 {
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
-                        //MessageBox.Show("You successfully logged into the CarDealership's system!", "Login Page");
+                        MessageBox.Show("You successfully logged into the CarDealership's system!", "Hey " + CurrentUser.UserName);
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame = new Frame();
                         rootFrame.Navigate(typeof(RegisterCarPage)); // if u want to send the user data just ,CurrentUser
