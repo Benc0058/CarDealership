@@ -90,9 +90,6 @@ namespace CarDealership.ViewModel
                         rootFrame.Navigate(typeof (RegisterCarPage)); // if u want to send the user data just ,CurrentUser
                         Window.Current.Content = rootFrame;
                         Window.Current.Activate();
-                        Facade a = new Facade();
-                        a.Load();
-                        a.LoadCustomer();
                         break;
                     }
                 }
