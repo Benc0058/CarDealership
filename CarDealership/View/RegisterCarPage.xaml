@@ -9,12 +9,60 @@
     x:Class="CarDealership.View.RegisterCarPage"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <ViewModel:RegisterCarViewModel/>
-    </Page.DataContext>
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+			CompactPaneLength="50" OpenPaneLength="150">
+            <SplitView.DataContext>
+                <ViewModel:NavigationViewModel/>
+            </SplitView.DataContext>
+            <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
+            <SplitView.Pane>
+                <StackPanel Background="#32BEA6">
+                    <Button x:Name="HamburgerButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE700;"
+						    Width="50" 
+                            Height="50" 
+                            Background="Transparent" 
+                            Click="HamburgerButton_Click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Car" 
+							FontFamily="Segoe MDL2 Assets" 
+							Content="&#xEC47;"
+							Width="50" 
+							Height="50" 
+							Background="Transparent"
+							Command="{Binding NavigateToCarCommand}"/>
+                        <TextBlock Text="Cars" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Customer" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE8D4;"
+							    Width="50" 
+                                Height="50" 
+                                Background="Transparent"
+                                Command="{Binding }"/>
+                        <TextBlock Text="Customers" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="LogOut" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE72B;"
+							    Width="50" 
+                                Height="50" 
+                                Background="Transparent"
+                                Command="{Binding LogOutCommand}"/>
+                        <TextBlock Text="Log Out" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </SplitView.Pane>
+            <Grid>
+                <Grid.DataContext>
+                    <ViewModel:RegisterCarViewModel/>
+                </Grid.DataContext>
+
+                <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
         <TextBox PlaceholderText="Find Car" Width="350" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,400" PlaceholderText="Name"/>
@@ -56,6 +104,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+            </Grid>
+        </SplitView>
 
 
     </Grid>

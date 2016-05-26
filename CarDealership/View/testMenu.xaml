@@ -1,44 +1,64 @@
 ﻿<Page
-    x:Class="CarDealership.View.testMenu"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CarDealership.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:CarDealership.ViewModel"
+    x:Class="CarDealership.View.testMenu"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <local:RegisterCarPage/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
-               CompactPaneLength="50" OpenPaneLength="150">
+			CompactPaneLength="50" OpenPaneLength="150">
             <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
             <SplitView.Pane>
-                <StackPanel Background="Gray">
+                <StackPanel Background="#32BEA6">
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+						Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
-                    Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Button 1" FontSize="18" VerticalAlignment="Center" />
+                        <Button x:Name="Car" 
+							FontFamily="Segoe MDL2 Assets" 
+							Content="&#xEC47;"
+							Width="50" 
+							Height="50" 
+							Background="Transparent"
+							Command="{Binding NavigateToCarCommand}"/>
+                        <TextBlock Text="Cars" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
-                        Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Button 2" FontSize="18" VerticalAlignment="Center" />
+                        <Button x:Name="Customer" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE8D4;"
+							    Width="50" 
+                                Height="50" 
+                                Background="Transparent"
+                                Command="{Binding }"/>
+                        <TextBlock Text="Customers" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
-                        Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
+                        <Button x:Name="LogOut" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE72B;"
+							    Width="50" 
+                                Height="50" 
+                                Background="Transparent"
+                                Command="{Binding LogOutCommand}"/>
+                        <TextBlock Text="Log Out" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
             </SplitView.Pane>
-            <SplitView.Content>
-                <Grid>
-                    <TextBlock Text="SplitView Basic" FontSize="54" Foreground="White"
-                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
-            </SplitView.Content>
+            <SplitView.DataContext>
+                <ViewModel:NavigationViewModel/>
+            </SplitView.DataContext>
+            <Grid>
+                <TextBlock Text="SplitView Basic" FontSize="54" Foreground="White"
+					HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
         </SplitView>
     </Grid>
 </Page>
