@@ -129,6 +129,7 @@ namespace CarDealership.ViewModel
             {
                 Invoice invoice = new Invoice(selectedcar, selectedcustomer);
                 invoicetext = invoice.Invoicetext();
+                invoice.Save(invoicetext);
 
             }
 
