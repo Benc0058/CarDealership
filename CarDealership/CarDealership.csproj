@@ -118,6 +118,9 @@
     <Compile Include="View\RegisterCarPage.xaml.cs">
       <DependentUpon>RegisterCarPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\testMenu.xaml.cs">
+      <DependentUpon>testMenu.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -149,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegisterCarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\testMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
