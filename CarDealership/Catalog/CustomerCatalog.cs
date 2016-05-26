@@ -23,5 +23,44 @@ namespace CarDealership.Catalog
             return customer;
 
         }
+        public static void SearchCustomer(string text)
+        {
+            int k = 0;
+            for (int i = 0; i < _customerList.Count; i++)
+            {
+              
+                if (Convert.ToString(_customerList[i].Age) == text)
+                {
+                    replace(i, k); k++;
+                }
+                if (_customerList[i].Name == text)
+                {
+                    replace(i, k); k++;
+                }
+                if (_customerList[i].Address == text)
+                {
+                    replace(i, k); k++;
+                }
+                if (_customerList[i].PhoneNumber == text)
+                {
+                    replace(i, k); k++;
+                }
+                if (_customerList[i].CPRNumber == text)
+                {
+                    replace(i, k); k++;
+                }
+                if (_customerList[i].Licence == text)
+                {
+                    replace(i, k); k++;
+                }
+            }
+        }
+
+        private static void replace(int a, int b)
+        {
+            Customer customer = _customerList[a];
+            _customerList[a] = _customerList[b];
+            _customerList[b] = customer;
+        }
     }
 }

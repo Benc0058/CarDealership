@@ -18,11 +18,12 @@ namespace CarDealership.Model
         private string _name;
         private string _brand;
         private string _color;
-        private int _year;
+        private string _year;
         private string _comment;
-        private int _price;
+        private string _price;
+        private string _imagepath;
         // Constructor. It is not good to use the default Constructor because the data will be missing
-        public Car(string name, string brand, string color, int year, string comment, int price)
+        public Car(string name, string brand, string color, string year, string comment, string price,string imagepath)
         {
             idCount++;
             _id = idCount;
@@ -32,13 +33,19 @@ namespace CarDealership.Model
             _year = year;
             _comment = comment;
             _price = price;
+            _imagepath = imagepath;
         }
         public Car()
         {
 
         }
         // Properties
-        public int Price
+        public string ImagePath
+        {
+            set { _imagepath = value; }
+            get { return _imagepath; }
+        }
+        public string Price
         {
             set { _price = value; }
             get { return _price; }
@@ -67,7 +74,7 @@ namespace CarDealership.Model
             get { return _color; }
         }
 
-        public int Year
+        public string Year
         {
             set { this._year = value; }
             get { return _year; }

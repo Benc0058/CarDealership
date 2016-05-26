@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -12,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using CarDealership.Model;
+using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +28,17 @@ namespace CarDealership.View
         public LoginPage()
         {
             this.InitializeComponent();
+
+            // Here we can change the color of the Title Bar
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            // Title Bar Content Area
+            titleBar.BackgroundColor = Color.FromArgb(0, 50, 190, 166);
+            titleBar.ForegroundColor = Colors.White;
+
+            // Title Bar Button Area
+            titleBar.ButtonBackgroundColor = Color.FromArgb(0, 50, 190, 166);
+            titleBar.ButtonForegroundColor = Colors.White;
         }
     }
 }

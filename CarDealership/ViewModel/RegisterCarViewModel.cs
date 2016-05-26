@@ -7,8 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
-using CarDealership.Model;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using CarDealership.View;
+using CarDealership.Model;
+
 using Windows.UI.Xaml.Navigation;
 
 
@@ -28,13 +31,16 @@ namespace CarDealership.ViewModel
             }
             get { return _carCollection; }
         }
+        //Properties related to adding a car
         public int ID { set; get; }
         public string Name { set; get; }
         public string Brand { set; get; }
         public string Color { set; get; }
-        public int Year { set; get; }
+        public string Year { set; get; }
         public string Comment { set; get; }
-        public int Price { set; get; }
+        public string Price { set; get; }
+        public string ImagePath { set; get; }
+        // Property relaed to search for car
         public string searchforcar { set; get; }
         private Car _selectedCar;
         public Car SelectedCar
@@ -50,15 +56,15 @@ namespace CarDealership.ViewModel
             get { return _selectedCar; }
           
         }
-        private int _selectedindex;
-        public string imagepath { get; set; }
+        private int _selectedindex { get; set; }
+       
         public int SelectedID
         {
             set
             {
                 if (_selectedindex != value)
                     _selectedindex = value;
-
+                OnPropertyChanged("_selectedindex");
             }
             get
             {
@@ -70,22 +76,30 @@ namespace CarDealership.ViewModel
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
         public Command searchCar { set; get; }
+        public Command CreateInvoiceWithSelectedCar { set; get; }
 
         // Constructor
 
         public RegisterCarViewModel()
         {
-            //  _carCatalog = new CarCatalog();
-            imagepath = "C:\\Users\\Jacob\\Documents\\OpelAstra.jpg";
-            AddCar = new Command(DoCommand);
+               
+            AddCar = new Command(addCar);
             DeleteCar = new Command(Deletecar);
             searchCar = new Command(SearchCar);
-
+            CreateInvoiceWithSelectedCar = new Command(CreateInvoice);
 
             CarCollection = CarCatalog._carList;
 
 
             // Methods
+        }
+        public void CreateInvoice(object newItem)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame = new Frame();
+            rootFrame.Navigate(typeof(InvoiceView),SelectedCar); // if u want to send the user data just ,CurrentUser
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
         }
         public void SearchCar(object newItem)
         {
@@ -93,10 +107,10 @@ namespace CarDealership.ViewModel
         }
         public void Deletecar(object newItem)
         {
-            CarCatalog.DeleteCarByID(SelectedID);
+            CarCatalog._carList.Remove(SelectedCar);
         }
 
-        public void DoCommand(object newItem)
+        public void addCar(object newItem)
         {
 
             //int cmdId = ID;
@@ -106,28 +120,52 @@ namespace CarDealership.ViewModel
             //int cmdYear = Year;
             //string cmdComment = Comment;
             //int cmdPrice = Price;
-            if (Validate(Name, Brand, Color, Year, Price))
+            if (Validate(Name, Brand, Color, Year, Price)=="true")
             {
-                Car car = CarCatalog.CreatNewCar(Name, Brand, Color, Year, Comment, Price);
+                Car car = CarCatalog.CreatNewCar(Name, Brand, Color, Year, Comment, Price+" Dkk", "ms-appx:///CarPictures/" +ImagePath);
             }
             else
             {
-                string k = "Missing data, the following lines need to be filled out \n Name \n Brand\n Color \n Year \n Price \n Additionaly, Price and Year must be numbers";
 
 
-                MessageBox.Show(k, "Missing data");
+                MessageBox.Show(Validate(Name, Brand, Color, Year, Price), "Missing data");
             }
 
 
         }
-        public bool Validate(string name, string brand, string color, int year, int price)
+        public string Validate(string name, string brand, string color, string year, string price)
         {
-            if (string.IsNullOrEmpty(name)) { return false; }
-            if (string.IsNullOrEmpty(brand)) { return false; }
-            if (string.IsNullOrEmpty(color)) { return false; }
-            if (year == 0) { return false; }
-            if (price == 0) { return false; }
-            return true;
+            
+            if (string.IsNullOrEmpty(name)) { return "Name is empty"; }
+            if (string.IsNullOrEmpty(brand)) { return "Brand is empty"; }
+            if (string.IsNullOrEmpty(color)) { return "Color is empty"; }
+            if (string.IsNullOrEmpty(Year)) { return "Year is empty"; }
+            if (string.IsNullOrEmpty(Price)) { return "Price is empty"; }
+            try
+            {
+                int x = Int32.Parse(Year);
+                if ((x<1900) || (x > 2016))
+                {
+                    return "Invalid Year";
+                }
+            }
+            catch
+            {
+                return "Year Must Be a Number";
+            }
+           try
+            {
+                int x = Int32.Parse(Price);
+                if (x <1)
+                {
+                    return "Invalid Year";
+                }
+            }
+            catch
+            {
+                return "Price Must Be a Number";
+            }
+            return "true";
         }
 
     }

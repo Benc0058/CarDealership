@@ -9,16 +9,20 @@
     xmlns:interfaces="using:CarDealership.Interfaces"
     x:Class="CarDealership.View.MainPage"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <ViewModel:MainPageViewModel/>
+    </Page.DataContext>
 
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
-        <Frame x:Name="framemain" HorizontalAlignment="Left" Height="633" Margin="10,87,0,0" VerticalAlignment="Top" Width="1260"/>
-        <HyperlinkButton Content="Create Invoice" HorizontalAlignment="Left" Margin="102,40,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
+        <Frame x:Name="framemain" HorizontalAlignment="Left" Height="633" Margin="10,87,0,0" VerticalAlignment="Top" Width="1260" Content="{Binding littleframe,Mode=TwoWay}"/>
+        <HyperlinkButton Content="Create Invoice" HorizontalAlignment="Left" Margin="102,40,0,0" VerticalAlignment="Top" Command="{Binding ToInvoicePage,Mode=TwoWay}" Click="HyperlinkButton_Click_1"/>
         <HyperlinkButton Content="Car" HorizontalAlignment="Left" Margin="422,40,0,0" VerticalAlignment="Top" Click="Registercar_Click"/>
         <HyperlinkButton Content="Log Out" HorizontalAlignment="Left" Margin="729,40,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="257,18,0,670" Command="{Binding ToInvoicePage,Mode=TwoWay}"/>
 
 
     </Grid>

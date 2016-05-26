@@ -28,23 +28,6 @@ namespace CarDealership.View
         {
             this.InitializeComponent();
         }
-        private void SelChanged(object sender, RoutedEventArgs e)
-        {
-            if (CarList.SelectedIndex != -1)
-            {
-                Car car = CarCatalog._carList[CarList.SelectedIndex];
-                Customer customer = CustomerCatalog._customerList[CustomerList.SelectedIndex];
-                textBlock.Text = Invoice.Invoicetext(car, customer);
-            }
-        }
-        private void SelChangedCustomer(object sender, RoutedEventArgs e)
-        {
-            if (CarList.SelectedIndex != -1)
-            {
-                Car car = CarCatalog._carList[CarList.SelectedIndex];
-                Customer customer = CustomerCatalog._customerList[CustomerList.SelectedIndex];
-                textBlock.Text = Invoice.Invoicetext(car, customer);
-            }
-        }
+        
     }
 }

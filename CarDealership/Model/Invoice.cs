@@ -20,13 +20,11 @@ namespace CarDealership.Model
             _customer = customer;
             _car = car;
         }
-        public void printtofile()
+       
+        public string Invoicetext()
         {
-            string text = "";
-            text = text + "fdfddffd";
-        }
-        public static string Invoicetext(Car car,Customer customer)
-        {
+            Car car = this._car;
+            Customer customer = this._customer;
             string text = "";
             text += "Invoice\n";
             text += "Car Information\n";

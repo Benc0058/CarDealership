@@ -17,7 +17,7 @@
 
         <ListView x:Name="CustomerList" Width="350"
 			Height="600"
-			ItemsSource="{Binding CustomerCollection}" SelectionChanged="SelChangedCustomer" Margin="158,79,772,41">
+			ItemsSource="{Binding CustomerCollection}" Margin="158,79,772,41" SelectedItem="{Binding selectedcustomer,Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -62,7 +62,7 @@
             <TextBox Text="{Binding license, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="license"/>
             <Button x:Name="button" Content="Addcustomer" Command="{Binding addCustomer}" HorizontalAlignment="Left" VerticalAlignment="Top "/>
         </StackPanel>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="934,125,0,0" TextWrapping="Wrap" Text="{Binding invoicedetails}" VerticalAlignment="Top" Height="460" Width="275" Foreground="White"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="934,125,0,0" TextWrapping="Wrap" Text="{Binding invoicetext, Mode=TwoWay}" VerticalAlignment="Top" Height="460" Width="275" Foreground="White"/>
         <StackPanel HorizontalAlignment="Left" Height="628" Margin="508,20,0,0" Width="566" VerticalAlignment="Top">
             <StackPanel HorizontalAlignment="Left" Height="32" Margin="20,0,0,0" VerticalAlignment="Top" Width="313" Orientation="Horizontal">
                 <TextBox PlaceholderText="Find Car" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
@@ -70,7 +70,7 @@
             </StackPanel>
             <ListView x:Name="CarList"
             	Height="600"
-            	ItemsSource="{Binding CarCollection}" Margin="0,0,168,0" SelectedItem="{Binding SelectedCar}" SelectionChanged="SelChanged" SelectedIndex="{Binding Selectedindex}" Header="" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
+            	ItemsSource="{Binding CarCollection}" Margin="0,0,168,0" SelectedItem="{Binding selectedcar,Mode=TwoWay}" SelectedIndex="{Binding Selectedindex}" Header="" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="350"
@@ -78,7 +78,7 @@
             				Margin="5">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="ID:" Width="50"/>
-                                <TextBox Text="{Binding ID}" Width="275"/>
+                                <TextBox Text="{Binding ID, Mode=TwoWay}" Width="275"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Name:" Width="50"/>
@@ -113,8 +113,8 @@
             </ListView>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="32" Margin="190,29,0,0" VerticalAlignment="Top" Width="313" Orientation="Horizontal">
-            <TextBox PlaceholderText="Find Car" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
-            <Button x:Name="button11" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="28" Width="100"/>
+            <TextBox PlaceholderText="Find Customer" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcustomer, Mode=TwoWay}"/>
+            <Button x:Name="button11" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCustomer}" VerticalAlignment="Top" Height="28" Width="100"/>
         </StackPanel>
     </Grid>
 </Page>

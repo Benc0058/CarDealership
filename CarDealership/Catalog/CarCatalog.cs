@@ -36,9 +36,9 @@ namespace CarDealership.Catalog
         static public ObservableCollection<Car> _carList = new ObservableCollection<Car>();
 
         // Method
-        static public Car CreatNewCar(string name, string brand, string color, int year, string comment, int price)
+        static public Car CreatNewCar(string name, string brand, string color, string year, string comment, string price,string imagepath)
         {
-            Car car = new Car(name, brand, color, year, comment, price);
+            Car car = new Car(name, brand, color, year, comment, price,imagepath);
             //if (ListContains(car)) { car = null; }
             //else
             //{
@@ -70,6 +70,10 @@ namespace CarDealership.Catalog
                 {
                     replace(i, k);k++;
                 }
+                if (Convert.ToString(_carList[i].Price) == text)
+                {
+                    replace(i, k); k++;
+                }
                 if (_carList[i].Name == text)
                 {
                     replace(i, k);k++;
@@ -77,6 +81,14 @@ namespace CarDealership.Catalog
                 if (_carList[i].Brand == text)
                 {
                     replace(i, k);k++;
+                }
+                if (_carList[i].Comment == text)
+                {
+                    replace(i, k); k++;
+                }
+                if (_carList[i].Color == text)
+                {
+                    replace(i, k); k++;
                 }
             }
         }

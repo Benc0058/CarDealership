@@ -50,5 +50,10 @@ namespace CarDealership.View
             Frame.Navigate(typeof(LoginPage));
             loading.Save();
         }
+
+        private void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            framemain.Navigate(typeof(InvoiceView));
+        }
     }
 }
