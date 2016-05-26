@@ -13,11 +13,44 @@
 
 
     <Grid Background="#FF59D435">
-
+        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+               CompactPaneLength="50" OpenPaneLength="150">
+            <SplitView.DataContext>
+                <ViewModel:MenuViewModel/>
+            </SplitView.DataContext>
+            <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
+            <SplitView.Pane>
+                <StackPanel Background="Gray">
+                    <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Carss" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
+                    Width="50" Height="50" Background="Transparent" Command="{Binding ToRegisterCar,Mode=TwoWay}"/>
+                        <TextBlock Text="Cars" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                        Width="50" Height="50" Background="Transparent" Command="{Binding ToInvoce,Mode=TwoWay}"/>
+                        <TextBlock Text="Invoice" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
+                        Width="50" Height="50" Background="Transparent"/>
+                        <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <TextBlock Text="SplitView Basic" FontSize="54" Foreground="White"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
 
         <ListView x:Name="CustomerList" Width="350"
 			Height="600"
-			ItemsSource="{Binding CustomerCollection}" Margin="158,79,772,41" SelectedItem="{Binding selectedcustomer,Mode=TwoWay}">
+			ItemsSource="{Binding CustomerCollection}" Margin="272,48,658,72" SelectedItem="{Binding selectedcustomer,Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="350"
@@ -52,7 +85,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="button1" Content="CreateInvoice" HorizontalAlignment="Left" Command="{Binding createInvoice}" Margin="993,66,0,0" VerticalAlignment="Top"/>
-        <StackPanel HorizontalAlignment="Left" Height="470" Margin="0,79,0,0" VerticalAlignment="Top" Width="164">
+        <StackPanel HorizontalAlignment="Left" Height="470" Margin="103,81,0,0" VerticalAlignment="Top" Width="164">
             <TextBox Text="{Binding name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
             <TextBox Text="{Binding age, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="age"/>
             <TextBox Text="{Binding adress, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="adress"/>

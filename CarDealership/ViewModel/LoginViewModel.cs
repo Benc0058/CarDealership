@@ -88,7 +88,7 @@ namespace CarDealership.ViewModel
                         MessageBox.Show("You logged into the Car Dealership's system.", "Hi, " + CurrentUser.UserName + "!");
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame = new Frame();
-                        rootFrame.Navigate(typeof(MainPage)); // if u want to send the user data just ,CurrentUser
+                        rootFrame.Navigate(typeof(RegisterCar)); // if u want to send the user data just ,CurrentUser
                         Window.Current.Content = rootFrame;
                         Window.Current.Activate();
                         break;
