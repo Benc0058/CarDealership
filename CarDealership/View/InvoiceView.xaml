@@ -66,32 +66,32 @@
 			ItemsSource="{Binding CustomerCollection}" Margin="190,110,690,10" SelectedItem="{Binding selectedcustomer,Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Width="350"
+                            <StackPanel Width="250"
 						Background="#32BEA6"
 						Margin="5">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Name:" Width="50"/>
-                                    <TextBox Text="{Binding Name}" Width="275"/>
+                                    <TextBox Text="{Binding Name}" Width="150"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Age:" Width="50"/>
-                                    <TextBox Text="{Binding Age}" Width="275"/>
+                                    <TextBox Text="{Binding Age}" Width="150"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Adress:" Width="50"/>
-                                    <TextBox Text="{Binding Address}" Width="275"/>
+                                    <TextBox Text="{Binding Address}" Width="150"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Phone:" Width="50"/>
-                                    <TextBox Text="{Binding PhoneNumber}" Width="275"/>
+                                    <TextBox Text="{Binding PhoneNumber}" Width="150"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="CPR:" Width="50"/>
-                                    <TextBox Text="{Binding CPRNumber}" Width="275"/>
+                                    <TextBox Text="{Binding CPRNumber}" Width="150"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="License:" Width="50"/>
-                                    <TextBox Text="{Binding Licence}" Width="275"/>
+                                    <TextBox Text="{Binding Licence}" Width="150"/>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
