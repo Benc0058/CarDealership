@@ -12,6 +12,7 @@ namespace CarDealership.Model
 
         private string _userName;
         private string _password;
+       
 
         //Properties
 
