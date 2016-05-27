@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="CarDealership.View.ButtonTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CarDealership.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:CarDealership.ViewModel"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+			CompactPaneLength="50" OpenPaneLength="50" Grid.RowSpan="2">
+            <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
+            <SplitView.Pane>
+                <StackPanel Background="#32BEA6" Height="50">
+                    <Button x:Name="HamburgerButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE1C0;"
+						    Width="50" 
+                            Height="50" 
+                            Background="Transparent" 
+                            Click="HamburgerButton_Click"/>
+                    <HyperlinkButton Content="" HorizontalAlignment="Right" Margin="1056,257,0,0" VerticalAlignment="Top"/>
+                    <StackPanel HorizontalAlignment="Left" Height="292" Margin="156,113,0,0" VerticalAlignment="Top" Width="187">
+                        <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
+                        <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
+                        <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year"/>
+                        <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
+                        <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
+                        <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
+                        <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image Name" BorderBrush="Black" SelectionHighlightColor="#FF32BEA6"/>
+                        <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150" Background="#32BEA6" BorderBrush="#FF32BEA6" BorderThickness="2,0,2,2" Foreground="Black"/>
+                    </StackPanel>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <TextBox></TextBox>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
