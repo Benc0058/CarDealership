@@ -67,7 +67,7 @@ namespace CarDealership.ViewModel
             {
                 if (_selectedindex != value)
                     _selectedindex = value;
-                OnPropertyChanged("_selectedindex");
+                OnPropertyChanged("");
             }
             get
             {
@@ -92,10 +92,8 @@ namespace CarDealership.ViewModel
             CreateInvoiceWithSelectedCar = new Command(CreateInvoice);
 
             CarCollection = CarCatalog._carList;
-            
 
-            // Methods
-            _facade = new Facade(CarCatalog._carList);
+            _facade = new Facade();
             this.LoadData();
         }
         public void CreateInvoice(object newItem)
