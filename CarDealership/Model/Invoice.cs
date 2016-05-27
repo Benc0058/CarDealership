@@ -10,7 +10,7 @@ using Windows.Storage;
 using CarDealership.Model;
 namespace CarDealership.Model
 {
-    class Invoice
+    public class Invoice
     {
         private Customer _customer;
         private Car _car;

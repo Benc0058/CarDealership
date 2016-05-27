@@ -37,6 +37,7 @@ namespace CarDealership.ViewModel
             }
             get { return _carCollection; }
         }
+        public Invoice thisinvoice { set; get; }
         public string name { set; get; }
         public int age { set; get; }
         public string adress { set; get; }
@@ -52,6 +53,7 @@ namespace CarDealership.ViewModel
                 {
                     _selectedcustomer = value;
                     OnPropertyChanged("_selectedcustomer");
+                    CreateInvoice();
                 }
             }
             get { return _selectedcustomer; }
@@ -65,6 +67,7 @@ namespace CarDealership.ViewModel
                 {
                     _selectedcar = value;
                     OnPropertyChanged("_selectedcar");
+                    CreateInvoice();
                 }
             }
             get { return _selectedcar; }
@@ -78,7 +81,7 @@ namespace CarDealership.ViewModel
                 {
                     _invoicetext = value;
                     OnPropertyChanged("invoicetext");
-
+                    
 
 
                 }
@@ -106,7 +109,7 @@ namespace CarDealership.ViewModel
             //  _carCatalog = new CarCatalog();
             //invoicedetails = "Select a Car and a Customer\n Invoice details will display here";
             addCustomer = new Command(AddCustomer);
-            createInvoice = new Command(CreateInvoice);
+            createInvoice = new Command(FinalizeSale);
             searchCar = new Command(SearchCar);
             searchCustomer = new Command(SearchCustomer);
             CarCollection = CarCatalog._carList;
@@ -123,16 +126,25 @@ namespace CarDealership.ViewModel
         {
             CustomerCatalog.SearchCustomer(searchforcustomer);
         }
-        public void CreateInvoice(object newItem)
+        public void FinalizeSale(object newItem)
+        {
+            if (thisinvoice != null)
+            {
+                CarCatalog._carList.Remove(selectedcar);
+            }
+            //print to file
+            //add to the user
+
+        }
+        public void CreateInvoice()
         {
             if ((selectedcar != null) && (selectedcustomer != null))
             {
                 Invoice invoice = new Invoice(selectedcar, selectedcustomer);
                 invoicetext = invoice.Invoicetext();
                 invoice.Save(invoicetext);
-
+                thisinvoice = invoice;
             }
-
         }
         public void AddCustomer(object newItem)
         {
