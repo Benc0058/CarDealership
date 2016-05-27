@@ -23,8 +23,11 @@ namespace CarDealership.ViewModel
         // Instance Field
         private ObservableCollection<Car> _carCollection;
         private Facade _facade;
+        private Car _selectedCar;
+
 
         // Properties
+
         public ObservableCollection<Car> CarCollection
         {
             set
@@ -34,18 +37,29 @@ namespace CarDealership.ViewModel
             }
             get { return _carCollection; }
         }
+
         //Properties related to adding a car
+
         public int ID { set; get; }
+
         public string Name { set; get; }
+
         public string Brand { set; get; }
+
         public string Color { set; get; }
+
         public string Year { set; get; }
+
         public string Comment { set; get; }
+
         public string Price { set; get; }
+
         public string ImagePath { set; get; }
+
         // Property relaed to search for car
+
         public string searchforcar { set; get; }
-        private Car _selectedCar;
+
         public Car SelectedCar
         {
             set
@@ -59,6 +73,7 @@ namespace CarDealership.ViewModel
             get { return _selectedCar; }
 
         }
+
         private int _selectedindex { get; set; }
 
         public int SelectedID
@@ -75,7 +90,6 @@ namespace CarDealership.ViewModel
             }
         }
 
-        // Commands
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
         public Command searchCar { set; get; }
@@ -96,6 +110,9 @@ namespace CarDealership.ViewModel
             _facade = new Facade();
             this.LoadData();
         }
+
+        // Commands
+
         public void CreateInvoice(object newItem)
         {
             //Frame rootFrame = Window.Current.Content as Frame;
@@ -104,10 +121,12 @@ namespace CarDealership.ViewModel
             //Window.Current.Content = rootFrame;
             //Window.Current.Activate();
         }
+
         public void SearchCar(object newItem)
         {
             CarCatalog.SearchCar(searchforcar);
         }
+
         public void Deletecar(object newItem)
         {
             CarCatalog._carList.Remove(SelectedCar);
@@ -115,30 +134,17 @@ namespace CarDealership.ViewModel
 
         public void addCar(object newItem)
         {
-
-            //int cmdId = ID;
-            //string cmdName = Name;
-            //string cmdBrand = Brand;
-            //string cmdColor = Color;
-            //int cmdYear = Year;
-            //string cmdComment = Comment;
-            //int cmdPrice = Price;
             if (Validate(Name, Brand, Color, Year, Price) == "true")
             {
                 Car car = CarCatalog.CreatNewCar(Name, Brand, Color, Year, Comment, Price + " Dkk", "ms-appx:///CarPictures/" + ImagePath);
             }
             else
             {
-
-
                 MessageBox.Show(Validate(Name, Brand, Color, Year, Price), "Missing data");
             }
-
-
         }
         public string Validate(string name, string brand, string color, string year, string price)
         {
-
             if (string.IsNullOrEmpty(name)) { return "Name is empty"; }
             if (string.IsNullOrEmpty(brand)) { return "Brand is empty"; }
             if (string.IsNullOrEmpty(color)) { return "Color is empty"; }
@@ -184,8 +190,6 @@ namespace CarDealership.ViewModel
             {
                 MessageBox.Show("Error is: " + ex, "Error");
             }
-
         }
-
     }
 }
