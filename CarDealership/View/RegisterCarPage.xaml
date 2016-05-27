@@ -63,7 +63,7 @@
                 </Grid.DataContext>
 
                 <ListView x:Name="CarList"
-			Height="600"
+			              Height="550"
 			ItemsSource="{Binding CarCollection}" Margin="395,126,356,-6" SelectedItem="{Binding SelectedCar,Mode=TwoWay}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True" >
                     <ListView.ItemTemplate>
                         <DataTemplate>

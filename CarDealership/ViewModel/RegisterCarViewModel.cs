@@ -90,8 +90,8 @@ namespace CarDealership.ViewModel
 
             CarCollection = CarCatalog._carList;
 
-
             // Methods
+
         }
         public void CreateInvoice(object newItem)
         {
