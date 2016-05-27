@@ -11,9 +11,11 @@ namespace CarDealership.Catalog
     static public class CustomerCatalog
     {
         // Instance Field
+
         static public ObservableCollection<Customer> _customerList = new ObservableCollection<Customer>();
 
         // Method
+
         static public Customer CreatNewCustomer(string name, int age, string adress, string phonenumber, string cpr, string license)
         {
             Customer customer = new Customer(name, age, adress, phonenumber, cpr, license);
@@ -21,8 +23,8 @@ namespace CarDealership.Catalog
             _customerList.Add(customer);
 
             return customer;
-
         }
+
         public static void SearchCustomer(string text)
         {
             int k = 0;
