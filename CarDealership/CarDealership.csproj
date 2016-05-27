@@ -110,7 +110,6 @@
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Persistency\Facade.cs" />
-    <Compile Include="Persistency\FacadeCustomer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
