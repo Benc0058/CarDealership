@@ -17,7 +17,6 @@ namespace CarDealership.Persistency
         private ObservableCollection<Car> _listOfCars;
         private ObservableCollection<Customer> _listOfCustomers;
         private static string filename = "ListOfCar.txt";
-        private static string filenamecustomer = "ListOfCustomer.txt";
 
         public async void Save()
         {
@@ -45,32 +44,5 @@ namespace CarDealership.Persistency
             CarCatalog._carList = _listOfCars;
             return _listOfCars;
         }
-        public async void SaveCustomer()
-        {
-            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.CreateFileAsync(filenamecustomer, CreationCollisionOption.ReplaceExisting);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<Customer>));
-
-            using (Stream stream = await file.OpenStreamForWriteAsync())
-            {
-                xmlSerializer.Serialize(stream, CustomerCatalog._customerList);
-
-            }
-        }
-        public async Task<ObservableCollection<Customer>> LoadCustomer()
-        {
-            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await localFolder.GetFileAsync(filenamecustomer);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<Customer>));
-
-            using (Stream stream = await file.OpenStreamForReadAsync())
-            {
-                _listOfCustomers = xmlSerializer.Deserialize(stream) as ObservableCollection<Customer>;
-
-            }
-            CustomerCatalog._customerList = _listOfCustomers;
-            return _listOfCustomers;
-        }
-
     }
 }
