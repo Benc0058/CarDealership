@@ -89,6 +89,7 @@ namespace CarDealership.ViewModel
             CreateInvoiceWithSelectedCar = new Command(CreateInvoice);
 
             CarCollection = CarCatalog._carList;
+            
 
             // Methods
 
@@ -166,6 +167,22 @@ namespace CarDealership.ViewModel
                 return "Price Must Be a Number";
             }
             return "true";
+        }
+
+        public async void LoadData()
+        {
+            try
+            {
+                ObservableCollection<Car> car = await _facade.Load();
+
+                this._carCollection = car;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error is: " + ex, "Error");
+            }
+
         }
 
     }
