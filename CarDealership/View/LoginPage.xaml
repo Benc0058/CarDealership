@@ -40,6 +40,7 @@
 			Height="30"
 			HorizontalAlignment="Center"
 			Margin="0,200,0,0"
+            Background="#32BEA6"
 			Command="{Binding LoginCommand}"/>
         
         
