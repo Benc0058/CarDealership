@@ -98,7 +98,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Button x:Name="CreatInvoice" 
-                        Content="CreateInvoice" 
+                        Content="Finalize Sale" 
                         HorizontalAlignment="Left" 
                         Command="{Binding createInvoice}"
                         Margin="1079,585,0,0" 
@@ -184,7 +184,6 @@
                             Width="65" 
                             Background="#32BEA6"/>
                 </StackPanel>
-                <Button x:Name="button1" Content="Finalize sale" HorizontalAlignment="Left" Margin="1079,625,0,0" VerticalAlignment="Top"  Background="#32BEA6"/>
             </Grid>
         </SplitView>
 
