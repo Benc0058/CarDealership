@@ -13,6 +13,7 @@ using CarDealership.View;
 using CarDealership.Model;
 
 using Windows.UI.Xaml.Navigation;
+using CarDealership.Persistency;
 
 
 namespace CarDealership.ViewModel
@@ -21,6 +22,8 @@ namespace CarDealership.ViewModel
     {
         // Instance Field
         private ObservableCollection<Car> _carCollection;
+        private Facade _facade;
+
         // Properties
         public ObservableCollection<Car> CarCollection
         {
@@ -92,7 +95,8 @@ namespace CarDealership.ViewModel
             
 
             // Methods
-
+            _facade = new Facade(CarCatalog._carList);
+            this.LoadData();
         }
         public void CreateInvoice(object newItem)
         {
