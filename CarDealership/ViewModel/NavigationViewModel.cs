@@ -51,8 +51,9 @@ namespace CarDealership.ViewModel
         public void LogOut(object obj)
         {
             Facade a = new Facade();
+            FacadeCustomer b = new FacadeCustomer();
             a.Save();
-            a.SaveCustomer();
+            b.SaveCustomer();
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame = new Frame();
             rootFrame.Navigate(typeof(LoginPage)); // if u want to send the user data just , CurrentUser
