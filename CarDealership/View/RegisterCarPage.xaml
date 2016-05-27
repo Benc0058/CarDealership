@@ -58,18 +58,17 @@
                 </StackPanel>
             </SplitView.Pane>
             <Grid>
-                <Grid.DataContext>
-                    <ViewModel:RegisterCarViewModel/>
-                </Grid.DataContext>
-
+            <Grid.DataContext>
+                <ViewModel:RegisterCarViewModel/>
+            </Grid.DataContext>
                 <ListView x:Name="CarList"
-			Height="600"
-			ItemsSource="{Binding CarCollection}" Margin="395,126,356,-6" SelectedItem="{Binding SelectedCar,Mode=TwoWay}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True" >
+			                Height="600"
+			                ItemsSource="{Binding CarCollection}" Margin="395,126,356,-6" SelectedItem="{Binding SelectedCar,Mode=TwoWay}" Header="Cars In Stock" CanDragItems="True" CanReorderItems="True" AllowDrop="True" IsItemClickEnabled="True" IsTabStop="True" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Width="400"
-						Background="#32BEA6"
-						Margin="5">
+						                Background="#32BEA6"
+						                Margin="5">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="#32BEA6" BorderThickness="0" Margin="5,5,5,4">
                                     <Image x:Name="image" Height="130" Margin="0,0,0,0" VerticalAlignment="Top" Width="130" Source="{Binding ImagePath,Mode=TwoWay}" NineGrid="0" />
                                     <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="0" Margin="10,0,0,0">
@@ -113,15 +112,14 @@
                 </ListView>
 
                 <HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>
-                <StackPanel HorizontalAlignment="Left" Height="292" Margin="156,113,0,0" VerticalAlignment="Top" Width="187">
-                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
-                    <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
-                    <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year"/>
-                    <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
-                    <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
-                    <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
-                    <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image Name" BorderBrush="Black" SelectionHighlightColor="#FF32BEA6"/>
-                    <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150" Background="#32BEA6" BorderBrush="#FF32BEA6" BorderThickness="2,0,2,2" Foreground="Black"/>
+                <StackPanel HorizontalAlignment="Center" Height="50" Margin="0,10,-0,0" VerticalAlignment="Top" Width="auto" Orientation="Horizontal">
+                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name" Margin="10"/>
+                    <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand" Margin="10"/>
+                    <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year" Margin="10"/>
+                    <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color" Margin="10"/>
+                    <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price" Margin="10"/>
+                    <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment" Margin="10"/>
+                    <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image Name" BorderBrush="Black" SelectionHighlightColor="#FF32BEA6" Margin="10"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="112" Margin="936,247,0,0" VerticalAlignment="Top" Width="104">
 

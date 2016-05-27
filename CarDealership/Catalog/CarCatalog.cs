@@ -48,6 +48,7 @@ namespace CarDealership.Catalog
             return car;
 
         }
+
         public static void DeleteCarByID(int id)
         {
 
@@ -57,6 +58,7 @@ namespace CarDealership.Catalog
             }
 
         }
+
         public static void SearchCar(string text)
         {
             int k = 0;
