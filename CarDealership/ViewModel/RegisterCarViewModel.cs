@@ -80,8 +80,6 @@ namespace CarDealership.ViewModel
 
             CarCollection.Add(car);
             _facade.Save(_carCollection);
-            
-
         }
 
         public async void LoadData()
