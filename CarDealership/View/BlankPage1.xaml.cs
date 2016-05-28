@@ -20,16 +20,11 @@ namespace CarDealership.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ButtonTest : Page
+    public sealed partial class BlankPage1 : Page
     {
-        public ButtonTest()
+        public BlankPage1()
         {
             this.InitializeComponent();
-        }
-
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
     }
 }
