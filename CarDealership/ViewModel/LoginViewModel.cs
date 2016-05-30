@@ -16,7 +16,7 @@ namespace CarDealership.ViewModel
     public class LoginViewModel : Notification
     {
         // Interface Field
-
+         
         private User _currentUser;
         private ObservableCollection<User> _users;
 

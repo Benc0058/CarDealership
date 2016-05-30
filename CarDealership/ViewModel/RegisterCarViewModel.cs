@@ -25,7 +25,6 @@ namespace CarDealership.ViewModel
         private Facade _facade;
         private Car _selectedCar;
 
-
         // Properties
 
         public ObservableCollection<Car> CarCollection
