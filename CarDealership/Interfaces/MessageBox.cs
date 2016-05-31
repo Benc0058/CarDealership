@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
@@ -19,7 +20,14 @@ namespace CarDealership.Interfaces
             messageDialog.Content = content;
             messageDialog.PrimaryButtonText = "Close";
             messageDialog.Hide();
+
             await messageDialog.ShowAsync();
+            
+            //if (messageDialog.Content != null)
+            //{
+            //    messageDialog.ShowAsync().Cancel();
+            //    messageDialog = null;
+            //}
         }
     }
 }

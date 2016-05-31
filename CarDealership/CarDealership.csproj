@@ -136,6 +136,7 @@
     <None Include="CarDealership_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\invoice.png" />
     <Content Include="Assets\icon_car.png" />
     <Content Include="Assets\car.png" />
     <Content Include="CarPictures\bmw.png" />

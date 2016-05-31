@@ -142,6 +142,7 @@ namespace CarDealership.ViewModel
                 MessageBox.Show(Validate(Name, Brand, Color, Year, Price), "Missing data");
             }
         }
+
         public string Validate(string name, string brand, string color, string year, string price)
         {
             if (string.IsNullOrEmpty(name)) { return "Name is empty"; }
