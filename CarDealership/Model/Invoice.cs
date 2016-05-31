@@ -14,11 +14,14 @@ namespace CarDealership.Model
     {
         private Customer _customer;
         private Car _car;
+        public string invoicetext;
 
         public Invoice(Car car, Customer customer)
         {
             _customer = customer;
             _car = car;
+            invoicetext = Invoicetext();
+
         }
 
         public string Invoicetext()
@@ -37,7 +40,7 @@ namespace CarDealership.Model
             text += "Customer Information\n";
             text += "Name : " + customer.Name + "\n";
             text += "Age : " + customer.Age + "\n";
-            text += "Adress : " + customer.Address + "\n";
+            text += "Adress : " + customer.Adress + "\n";
             text += "Phone number : " + Convert.ToString(customer.PhoneNumber) + "\n";
             text += "CPR number : " + Convert.ToString(customer.CPRNumber) + "\n\n";
             // text += "Price without tax :" + Convert.ToString(0.8 * car.Price) + " dkk\n";

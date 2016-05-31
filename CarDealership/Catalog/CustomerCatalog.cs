@@ -39,7 +39,7 @@ namespace CarDealership.Catalog
                 {
                     replace(i, k); k++;
                 }
-                if (_customerList[i].Address == text)
+                if (_customerList[i].Adress == text)
                 {
                     replace(i, k); k++;
                 }
@@ -51,7 +51,7 @@ namespace CarDealership.Catalog
                 {
                     replace(i, k); k++;
                 }
-                if (_customerList[i].Licence == text)
+                if (_customerList[i].License == text)
                 {
                     replace(i, k); k++;
                 }

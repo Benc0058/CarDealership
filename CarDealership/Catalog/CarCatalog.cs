@@ -35,7 +35,7 @@ namespace CarDealership.Catalog
         // Instance Field
 
         static public ObservableCollection<Car> _carList = new ObservableCollection<Car>();
-
+        static public Car SelectedCar;
         // Method
         static public Car CreatNewCar(string name, string brand, string color, string year, string comment, string price, string imagepath)
         {

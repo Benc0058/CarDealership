@@ -50,7 +50,7 @@ namespace CarDealership.Model
             get { return _car; }
         }
 
-        public string Address
+        public string Adress
         {
             set { _adress = value; }
             get { return _adress; }
@@ -68,7 +68,7 @@ namespace CarDealership.Model
             get { return _cprNumber; }
         }
 
-        public string Licence
+        public string License
         {
             set { _licence = value; }
             get { return _licence; }

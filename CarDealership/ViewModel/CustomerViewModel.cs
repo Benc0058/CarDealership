@@ -20,8 +20,7 @@ namespace CarDealership.ViewModel
         private ObservableCollection<Customer> _customerCollection;
         private Facade _facade;
         private Customer _selectedcustomer;
-    
-
+  
         // Properties
         public ObservableCollection<Customer> CustomerCollection
         {

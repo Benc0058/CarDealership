@@ -78,7 +78,7 @@
                                 <controls:DataGridTextColumn Width="200" Header="Name" 
                   Binding="{Binding Name}"/>
                                 <controls:DataGridTextColumn Width="200" Header="CPR" 
-                  Binding="{Binding Cpr}" />
+                  Binding="{Binding CPRNumber}" />
                             </controls:DataGrid.Columns>
 
                             <controls:DataGrid.ItemDetailsTemplate>
@@ -92,20 +92,20 @@
                                         <StackPanel HorizontalAlignment="Left" Grid.Column="0">
                                             <TextBlock Text="Details: " FontWeight="Bold" FontSize="15"/>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Address:" Width="50"/>
+                                                <TextBlock Text="Address:" Width="60"/>
                                                 <TextBlock Text="{Binding Adress}" Width="100" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Age:" Width="80"/>
+                                                <TextBlock Text="Age:" Width="60"/>
                                                 <TextBlock Text="{Binding Age}" Width="200"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Licence:" Width="80"/>
+                                                <TextBlock Text="Licence:" Width="60"/>
                                                 <TextBlock Text="{Binding License}" Width="200"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Phone:" Width="80"/>
-                                                <TextBlock Text="{Binding Phonenumber}" Width="200"/>
+                                                <TextBlock Text="Phone:" Width="60"/>
+                                                <TextBlock Text="{Binding PhoneNumber}" Width="200"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>

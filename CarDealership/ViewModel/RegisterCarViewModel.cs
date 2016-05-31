@@ -83,11 +83,15 @@ namespace CarDealership.ViewModel
 
         public void CreateInvoice(object newItem)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame = new Frame();
-            rootFrame.Navigate(typeof(InvoiceView), SelectedCar); // if u want to send the user data just ,CurrentUser
-            Window.Current.Content = rootFrame;
-            Window.Current.Activate();
+            if (SelectedCar != null)
+            {
+                CarCatalog.SelectedCar = SelectedCar;
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame = new Frame();
+                rootFrame.Navigate(typeof(InvoiceView), SelectedCar); // if u want to send the user data just ,CurrentUser
+                Window.Current.Content = rootFrame;
+                Window.Current.Activate();
+            }
         }
 
         public void SearchCar(object newItem)
