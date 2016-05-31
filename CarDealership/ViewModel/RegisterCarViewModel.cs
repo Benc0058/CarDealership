@@ -63,9 +63,7 @@ namespace CarDealership.ViewModel
         {
             set
             {
-                if (_selectedCar != value)
-                    _selectedCar = value;
-
+                _selectedCar = value;
                 OnPropertyChanged("_SelectedCar");
             }
 
@@ -129,6 +127,7 @@ namespace CarDealership.ViewModel
         public void Deletecar(object newItem)
         {
             CarCatalog._carList.Remove(SelectedCar);
+            _facade.Save();
         }
 
         public void addCar(object newItem)
@@ -136,6 +135,7 @@ namespace CarDealership.ViewModel
             if (Validate(Name, Brand, Color, Year, Price) == "true")
             {
                 Car car = CarCatalog.CreatNewCar(Name, Brand, Color, Year, Comment, Price + " Dkk", "ms-appx:///CarPictures/" + ImagePath);
+                _facade.Save();
             }
             else
             {

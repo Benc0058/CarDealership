@@ -26,6 +26,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CarDealership.Model;
 using CarDealership.Catalog;
+using CarDealership.Persistency;
 
 namespace CarDealership.Catalog
 {
@@ -54,7 +55,11 @@ namespace CarDealership.Catalog
 
             foreach (Car i in _carList)
             {
-                if (i.ID == id) { _carList.Remove(i); break; }
+                if (i.ID == id)
+                {
+                    _carList.Remove(i);
+                    break;
+                }
             }
 
         }
