@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using CarDealership.Model;
+using CarDealership.Persistency;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -17,6 +18,7 @@ namespace CarDealership.ViewModel
     {
         // Instance Field
         private ObservableCollection<Customer> _customerCollection;
+        private Facade _facade;
         private Customer _selectedcustomer;
     
 
@@ -81,13 +83,17 @@ namespace CarDealership.ViewModel
             SearchCustomerCommand = new Command(SearchCustomer);
             //DeleteCustomerCommand = new Command();
 
-            //todo load customer facade here
+            _facade = new Facade();
+            _facade.LoadCustomer();
             CustomerCollection = CustomerCatalog._customerList;
         }
 
         // Commands
 
-    
+        public void DeleteCustomer(object newItem)
+        {
+            _facade.SaveCustomer();
+        }
 
         public void SearchCustomer(object newItem)
         {
@@ -109,6 +115,7 @@ namespace CarDealership.ViewModel
             if (Validate(Name, Age, Adress, Phonenumber, Cpr, License))
             {
                 Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, Phonenumber, Cpr, License);
+                _facade.SaveCustomer();
             }
             else
             {
