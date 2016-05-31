@@ -17,12 +17,10 @@ namespace CarDealership.ViewModel
     {
         // Instance Field
         private ObservableCollection<Customer> _customerCollection;
-    
         private Customer _selectedcustomer;
     
 
         // Properties
-
         public ObservableCollection<Customer> CustomerCollection
         {
             set
@@ -35,19 +33,19 @@ namespace CarDealership.ViewModel
 
         
 
-        public string name { set; get; }
+        public string Name { set; get; }
 
-        public int age { set; get; }
+        public int Age { set; get; }
 
-        public string adress { set; get; }
+        public string Adress { set; get; }
 
-        public string phonenumber { set; get; }
+        public string Phonenumber { set; get; }
 
-        public string cpr { set; get; }
+        public string Cpr { set; get; }
 
-        public string license { set; get; }
+        public string License { set; get; }
 
-        public Customer Selectedcustomer
+        public Customer SelectedCustomer
         {
             set
             {
@@ -67,23 +65,23 @@ namespace CarDealership.ViewModel
 
      
 
-        public string searchforcustomer { set; get; }
+        public string Searchforcustomer { set; get; }
 
-        public Command addCustomer { set; get; }
+        public Command AddCustomerCommand { set; get; }
       
-        public Command searchCustomer { set; get; }
-        public Command deleteCustomer { set; get; }
+        public Command SearchCustomerCommand { set; get; }
+        public Command DeleteCustomerCommand { set; get; }
 
         // Constructor
 
         public CustomerViewModel()
         {
-           
-            addCustomer = new Command(AddCustomer);
-  
-           
-            searchCustomer = new Command(SearchCustomer);
-      //todo load customer facade here
+
+            AddCustomerCommand = new Command(AddCustomer);
+            SearchCustomerCommand = new Command(SearchCustomer);
+            //DeleteCustomerCommand = new Command();
+
+            //todo load customer facade here
             CustomerCollection = CustomerCatalog._customerList;
         }
 
@@ -93,7 +91,7 @@ namespace CarDealership.ViewModel
 
         public void SearchCustomer(object newItem)
         {
-            CustomerCatalog.SearchCustomer(searchforcustomer);
+            CustomerCatalog.SearchCustomer(Searchforcustomer);
         }
 
  
@@ -108,9 +106,9 @@ namespace CarDealership.ViewModel
             //string cmdlicense = license;
 
 
-            if (Validate(name, age, adress, phonenumber, cpr, license))
+            if (Validate(Name, Age, Adress, Phonenumber, Cpr, License))
             {
-                Customer customer = CustomerCatalog.CreatNewCustomer(name, age, adress, phonenumber, cpr, license);
+                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, Phonenumber, Cpr, License);
             }
             else
             {
