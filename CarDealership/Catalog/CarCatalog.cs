@@ -50,19 +50,7 @@ namespace CarDealership.Catalog
 
         }
 
-        public static void DeleteCarByID(int id)
-        {
-
-            foreach (Car i in _carList)
-            {
-                if (i.ID == id)
-                {
-                    _carList.Remove(i);
-                    break;
-                }
-            }
-
-        }
+    
 
         public static void SearchCar(string text)
         {

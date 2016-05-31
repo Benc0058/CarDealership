@@ -57,23 +57,6 @@ namespace CarDealership.ViewModel
             get { return _selectedCar; }
 
         }
-
-        private int _selectedindex { get; set; }
-
-        public int SelectedIndex
-        {
-            set
-            {
-                if (_selectedindex != value)
-                    _selectedindex = value;
-                OnPropertyChanged("");
-            }
-            get
-            {
-                return _selectedindex;
-            }
-        }
-
         // Commands 
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
