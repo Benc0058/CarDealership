@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using CarDealership.View;
 using CarDealership.Model;
-
 using Windows.UI.Xaml.Navigation;
 using CarDealership.Persistency;
 
@@ -22,8 +16,8 @@ namespace CarDealership.ViewModel
     {
         // Instance Field
         private ObservableCollection<Car> _carCollection;
-        private Facade _facade;
-        private Car _selectedCar;
+        private Facade _facade;             //for save and load the data to file
+        private Car _selectedCar;           //
 
         // Properties
 
@@ -40,19 +34,12 @@ namespace CarDealership.ViewModel
         //Properties related to adding a car
 
         public int ID { set; get; }
-
         public string Name { set; get; }
-
         public string Brand { set; get; }
-
         public string Color { set; get; }
-
         public string Year { set; get; }
-
         public string Comment { set; get; }
-
         public string Price { set; get; }
-
         public string ImagePath { set; get; }
 
         // Property relaed to search for car
@@ -73,7 +60,7 @@ namespace CarDealership.ViewModel
 
         private int _selectedindex { get; set; }
 
-        public int SelectedID
+        public int SelectedIndex
         {
             set
             {
@@ -87,6 +74,7 @@ namespace CarDealership.ViewModel
             }
         }
 
+        // Commands 
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
         public Command searchCar { set; get; }
@@ -108,15 +96,15 @@ namespace CarDealership.ViewModel
             this.LoadData();
         }
 
-        // Commands
+        // Command functions
 
         public void CreateInvoice(object newItem)
         {
-            //Frame rootFrame = Window.Current.Content as Frame;
-            //rootFrame = new Frame();
-            //rootFrame.Navigate(typeof(InvoiceView), SelectedCar); // if u want to send the user data just ,CurrentUser
-            //Window.Current.Content = rootFrame;
-            //Window.Current.Activate();
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame = new Frame();
+            rootFrame.Navigate(typeof(InvoiceView), SelectedCar); // if u want to send the user data just ,CurrentUser
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
         }
 
         public void SearchCar(object newItem)
@@ -126,8 +114,11 @@ namespace CarDealership.ViewModel
 
         public void Deletecar(object newItem)
         {
-            CarCatalog._carList.Remove(SelectedCar);
-            _facade.Save();
+            if (SelectedCar != null)
+            {
+                CarCatalog._carList.Remove(SelectedCar);
+                _facade.Save();
+            }
         }
 
         public void addCar(object newItem)
