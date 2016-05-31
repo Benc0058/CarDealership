@@ -81,10 +81,10 @@ namespace CarDealership.ViewModel
 
             AddCustomerCommand = new Command(AddCustomer);
             SearchCustomerCommand = new Command(SearchCustomer);
-            //DeleteCustomerCommand = new Command();
+            DeleteCustomerCommand = new Command(DeleteCustomer);
 
             _facade = new Facade();
-            _facade.LoadCustomer();
+            LoadData();
             CustomerCollection = CustomerCatalog._customerList;
         }
 
@@ -92,6 +92,7 @@ namespace CarDealership.ViewModel
 
         public void DeleteCustomer(object newItem)
         {
+            CustomerCatalog._customerList.Remove(SelectedCustomer);
             _facade.SaveCustomer();
         }
 
@@ -136,6 +137,20 @@ namespace CarDealership.ViewModel
             if (age == 0) { return false; }
 
             return true;
+        }
+        public async void LoadData()
+        {
+            try
+            {
+                ObservableCollection<Customer> customer = await _facade.LoadCustomer();
+
+                this._customerCollection = customer;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error is: " + ex, "Error");
+            }
         }
     }
 
