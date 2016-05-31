@@ -18,7 +18,7 @@
                 <ViewModel:NavigationViewModel/>
             </SplitView.DataContext>
             <!--The pane represents the menu that you want to be able to interact with, and the content represents the main content of your page.-->
-<!--SplitviewPane-Begin-->
+            <!--SplitviewPane-Begin-->
             <SplitView.Pane>
                 <StackPanel Background="Silver">
                     <StackPanel Orientation="Horizontal" Background="#32BEA6">
@@ -62,17 +62,19 @@
                     </StackPanel>
                 </StackPanel>
             </SplitView.Pane>
-<!--SplitViewPane - End-->
-<!--SplitviewContent - Begin-->
+            <!--SplitViewPane - End-->
+
+            <!--SplitviewContent - Begin-->
             <SplitView.Content>
                 <Grid>
                     <Grid.DataContext>
                         <ViewModel:RegisterCarViewModel/>
                     </Grid.DataContext>
+
                     <!--DataGrid-->
-                    <StackPanel  BorderThickness="3,3,3,3" BorderBrush="WhiteSmoke" Width="600" Height="510">
+                    <StackPanel  BorderThickness="3,3,3,3" BorderBrush="WhiteSmoke" Width="600" Margin="315,103,315,97">
                         <controls:DataGrid ItemsSource="{Binding CarCollection}" x:Name="DataGrid" 
-                   SelectionMode="Multiple" SelectedItem="{Binding SelectedCar, Mode=TwoWay}" DefaultOrderIndex="1" Width="600" Height="500">
+                   SelectionMode="Single" SelectedItem="{Binding SelectedCar, Mode=TwoWay}" DefaultOrderIndex="1" Height="380" Width="600" Margin="0,0,-3,0" controls:DataGridExtensions.UseSingleSelectionAndDeselection="true">
                             <!--Here u can put the header-->
                             <controls:DataGrid.Columns>
                                 <controls:DataGridTextColumn Width="200" Header="ID" 
@@ -114,39 +116,68 @@
                                                 <TextBlock Text="{Binding Comment}" Width="200"/>
                                             </StackPanel>
                                         </StackPanel>
+                                        <StackPanel HorizontalAlignment="Right" Grid.Column="1">
+                                            <Image Source="{Binding ImagePath}" Width="100" Height="100"/>
+                                        </StackPanel>
                                     </Grid>
                                 </DataTemplate>
                             </controls:DataGrid.ItemDetailsTemplate>
                         </controls:DataGrid>
+
+                        <!--Inputs-Begin-->
+                        <StackPanel>
+                            <StackPanel Height="45" Orientation="Horizontal" Margin="7,0" HorizontalAlignment="Center">
+                                <StackPanel VerticalAlignment="Center" Width="160">
+                                    <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Brand"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center" Width="160">
+                                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Name"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center" Width="160">
+                                    <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" PlaceholderText="Year" Margin="0,7,0,6"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Height="45" Orientation="Horizontal" Margin="7,0" HorizontalAlignment="Center">
+                                <StackPanel VerticalAlignment="Center" Width="160">
+                                    <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Color"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center" Width="160">
+                                    <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Price"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center" Width="160">
+                                    <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Comment"/>
+                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="100" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
+                    <!--Inputs-End-->
                     <!--DataGrid-End-->
-<!--Inputs-Begin-->
+
                     <!--<HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>-->
-                    <StackPanel HorizontalAlignment="Left" Height="292" Margin="156,113,0,0" VerticalAlignment="Top" Width="187">
-                        <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Name"/>
-                        <TextBox Text="{Binding Brand, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Brand"/>
-                        <TextBox Text="{Binding Year, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Year"/>
-                        <TextBox Text="{Binding Color, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Color"/>
-                        <TextBox Text="{Binding Price, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Price"/>
-                        <TextBox Text="{Binding Comment, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Comment"/>
-                        <TextBox Text="{Binding ImagePath, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" PlaceholderText="Image Name" BorderBrush="Black" SelectionHighlightColor="#FF32BEA6"/>
-                        <Button x:Name="AddCarButton" Content="Add Car" Command="{Binding AddCar}" Width="150" Background="#32BEA6" BorderBrush="#FF32BEA6" BorderThickness="2,0,2,2" Foreground="Black"/>
-                    </StackPanel>
-<!--Inputs-End-->
+
                     <!--AppBar-Begin-->
                     <StackPanel Orientation="Horizontal" Margin="315,0,0,40" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <AppBarButton Icon = "Add" Command="{Binding AddCar}"/>
+                        <AppBarSeparator/>
                         <AppBarButton Icon = "Delete" Command="{Binding DeleteCar}"/>
                         <AppBarSeparator/>
                         <AppBarButton Icon = "Shop" Command="{Binding CreateInvoiceWithSelectedCar}"/>
                     </StackPanel>
                     <!--AppBar-End-->
-                    <StackPanel HorizontalAlignment="Right" Height="64" Margin="0,71,367,0" VerticalAlignment="Top" Width="437" Orientation="Horizontal">
-                        <TextBox PlaceholderText="Find Car" Width="250" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}"/>
-                        <Button x:Name="Search" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="32" Width="100" Background="#32BEA6"/>
+
+                    <!--FilterCar-Begin-->
+                    <StackPanel HorizontalAlignment="Center" Height="90" Width="600" Margin="317,11,313,0" VerticalAlignment="Top" Orientation="Horizontal">
+                        <TextBox PlaceholderText="Find Car" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}" Margin="0,0,0,2"/>
+                        <!--<Button x:Name="Search" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="32" Width="100" Background="#32BEA6"/>-->
                     </StackPanel>
+                    <!--FilterCar-End-->
+
                 </Grid>
             </SplitView.Content>
-<!--SplitviewContent-End-->
+            <!--SplitviewContent-End-->
         </SplitView>
     </Grid>
 </Page>
