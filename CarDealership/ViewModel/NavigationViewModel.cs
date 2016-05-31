@@ -43,7 +43,7 @@ namespace CarDealership.ViewModel
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame = new Frame();
-            rootFrame.Navigate(typeof(InvoiceView)); // if u want to send the user data just ,CurrentUser
+            rootFrame.Navigate(typeof(CustomerPage)); // if u want to send the user data just ,CurrentUser
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
         }
