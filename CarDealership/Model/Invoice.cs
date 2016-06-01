@@ -14,7 +14,8 @@ namespace CarDealership.Model
     {
         private Customer _customer;
         private Car _car;
-        public string invoicetext;
+        private string invoicetext;
+        public string InvoiceText { get; set; }
 
         public Invoice(Car car, Customer customer)
         {

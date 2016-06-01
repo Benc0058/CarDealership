@@ -30,5 +30,7 @@ namespace CarDealership.View
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
+
+       
     }
 }
