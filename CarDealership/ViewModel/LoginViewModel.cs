@@ -84,6 +84,7 @@ namespace CarDealership.ViewModel
                     if ((user.UserName == CurrentUser.UserName) && (user.Password == CurrentUser.Password))
                     {
                         loginStatus = true;
+                        Invoice.loggedinuser = CurrentUser.UserName;
                         MessageBox.Show("You logged into the Car Dealership's system.", "Hi, " + CurrentUser.UserName + "!");
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame = new Frame();

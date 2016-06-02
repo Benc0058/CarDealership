@@ -14,8 +14,9 @@ namespace CarDealership.Model
     {
         private Customer _customer;
         private Car _car;
-        private string invoicetext;
-        public string InvoiceText { get; set; }
+        public string invoicetext;
+        static public string loggedinuser;
+      
 
         public Invoice(Car car, Customer customer)
         {
@@ -47,7 +48,7 @@ namespace CarDealership.Model
             // text += "Price without tax :" + Convert.ToString(0.8 * car.Price) + " dkk\n";
             text += "Price with tax :" + Convert.ToString(car.Price) + " dkk\n\n";
             text += "Date : " + DateTime.Now.ToString("dd:mm:yy") + "\n";
-            text += "Sold by Bence";
+            text += "Sold by "+loggedinuser;
             return text;
 
 

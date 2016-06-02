@@ -145,7 +145,7 @@ namespace CarDealership.ViewModel
                 int x = Int32.Parse(Price);
                 if (x < 1)
                 {
-                    return "Invalid Year";
+                    return "Invalid Price";
                 }
             }
             catch
