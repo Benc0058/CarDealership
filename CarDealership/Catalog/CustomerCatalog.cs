@@ -25,44 +25,40 @@ namespace CarDealership.Catalog
             return customer;
         }
 
-        public static void SearchCustomer(string text)
+        public static ObservableCollection<Customer> SearchCustomer(string text)
         {
-            int k = 0;
+            ObservableCollection<Customer> k = new ObservableCollection<Customer>();
             for (int i = 0; i < _customerList.Count; i++)
             {
 
                 if (Convert.ToString(_customerList[i].Age) == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_customerList[i]); continue;
                 }
                 if (_customerList[i].Name == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_customerList[i]); continue;
                 }
                 if (_customerList[i].Adress == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_customerList[i]); continue;
                 }
                 if (_customerList[i].PhoneNumber == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_customerList[i]); continue;
                 }
                 if (_customerList[i].CPRNumber == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_customerList[i]); continue;
                 }
                 if (_customerList[i].License == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_customerList[i]); continue;
                 }
             }
+            return k;
         }
 
-        private static void replace(int a, int b)
-        {
-            Customer customer = _customerList[a];
-            _customerList[a] = _customerList[b];
-            _customerList[b] = customer;
-        }
+      
     }
 }

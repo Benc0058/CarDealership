@@ -90,11 +90,6 @@ namespace CarDealership.Catalog
             return k;
         }
 
-        private static void replace(int a, int b)
-        {
-            Car car = _carList[a];
-            _carList[a] = _carList[b];
-            _carList[b] = car;
-        }
+     
     }
 }

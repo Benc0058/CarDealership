@@ -60,13 +60,26 @@ namespace CarDealership.ViewModel
             get { return _selectedcustomer; }
         }
 
-      
 
-  
 
-     
 
-        public string Searchforcustomer { set; get; }
+
+
+
+        private string searchforcustomer;
+        public string SearchForCustomer
+        
+            {
+                set
+            {
+                    searchforcustomer = value;
+                    OnPropertyChanged("SearchForCustomer");
+                    SearchCustomer("sd");
+                }
+
+                get { return searchforcustomer; }
+            }
+        
 
         public Command AddCustomerCommand { set; get; }
       
@@ -97,10 +110,19 @@ namespace CarDealership.ViewModel
 
         public void SearchCustomer(object newItem)
         {
-            CustomerCatalog.SearchCustomer(Searchforcustomer);
+            if (string.IsNullOrEmpty(searchforcustomer))
+            {
+                CustomerCollection = CustomerCatalog._customerList;
+            }
+            else
+            {
+                CustomerCollection = CustomerCatalog.SearchCustomer(searchforcustomer);
+            }
+
+
         }
 
- 
+
 
         public void AddCustomer(object newItem)
         {

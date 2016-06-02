@@ -135,7 +135,7 @@
 
                     <!--FilterCar-Begin-->
                     <StackPanel HorizontalAlignment="Center" Height="90" Width="600" Margin="317,11,313,0" VerticalAlignment="Top" Orientation="Horizontal">
-                        <TextBox PlaceholderText="Find Customer" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}" Margin="0,0,0,2"/>
+                        <TextBox PlaceholderText="Find Customer" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding SearchForCustomer, Mode=TwoWay}" Margin="0,0,0,2"/>
                         <!--<Button x:Name="Search" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="32" Width="100" Background="#32BEA6"/>-->
                     </StackPanel>
                     <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="432" Margin="946,103,0,0" TextWrapping="Wrap" Text="{Binding Invoicetext, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
