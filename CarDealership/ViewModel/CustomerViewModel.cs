@@ -40,7 +40,7 @@ namespace CarDealership.ViewModel
 
         public string Adress { set; get; }
 
-        public string Phonenumber { set; get; }
+        public string PhoneNumber { set; get; }
 
         public string Cpr { set; get; }
 
@@ -112,9 +112,9 @@ namespace CarDealership.ViewModel
             //string cmdlicense = license;
 
 
-            if (Validate(Name, Age, Adress, Phonenumber, Cpr, License))
+            if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License))
             {
-                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, Phonenumber, Cpr, License);
+                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, PhoneNumber, Cpr, License);
                 _facade.SaveCustomer();
             }
             else

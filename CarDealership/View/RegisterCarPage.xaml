@@ -31,7 +31,7 @@
                             Click="HamburgerButton_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="Car" 
+                            <Button x:Name="Car" 
 							FontFamily="Segoe MDL2 Assets" 
 							Content="&#xEC47;"
 							Width="50" 

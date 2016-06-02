@@ -106,7 +106,7 @@
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="Phone:" Width="60"/>
-                                                <TextBlock Text="{Binding Phonenumber}" Width="200"/>
+                                                <TextBlock Text="{Binding PhoneNumber}" Width="200"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>

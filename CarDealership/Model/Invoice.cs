@@ -47,7 +47,7 @@ namespace CarDealership.Model
             text += "CPR number : " + Convert.ToString(customer.CPRNumber) + "\n\n";
             // text += "Price without tax :" + Convert.ToString(0.8 * car.Price) + " dkk\n";
             text += "Price with tax :" + Convert.ToString(car.Price) + "\n\n";
-            text += "Date : " + DateTime.Now.ToString("dd:mm:yy") + "\n";
+            text += "Date : " + DateTime.Now.ToString("d") + "\n";
             text += "Sold by "+loggedinuser;
             return text;
 

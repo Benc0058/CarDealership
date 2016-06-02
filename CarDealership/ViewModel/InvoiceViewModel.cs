@@ -37,12 +37,12 @@ namespace CarDealership.ViewModel
         }
 
         public Invoice thisinvoice { set; get; }
-        public string name { set; get; }
-        public int age { set; get; }
-        public string adress { set; get; }
-        public string phonenumber { set; get; }
-        public string cpr { set; get; }
-        public string license { set; get; }
+        public string Name { set; get; }
+        public int Age { set; get; }
+        public string Adress { set; get; }
+        public string PhoneNumber { set; get; }
+        public string Cpr { set; get; }
+        public string License { set; get; }
         public Customer SelectedCustomer
         {
             set
@@ -139,9 +139,9 @@ namespace CarDealership.ViewModel
             //string cmdlicense = license;
 
 
-            if (Validate(name, age, adress, phonenumber, cpr, license))
+            if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License))
             {
-                Customer customer = CustomerCatalog.CreatNewCustomer(name, age, adress, phonenumber, cpr, license);
+                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, PhoneNumber, Cpr, License);
             }
             else
             {
