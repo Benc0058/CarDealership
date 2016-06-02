@@ -110,7 +110,7 @@ namespace CarDealership.ViewModel
 
         // Commands
 
-
+   
 
         public void SearchCustomer(object newItem)
         {
