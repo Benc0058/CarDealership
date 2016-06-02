@@ -14,14 +14,23 @@ namespace CarDealership.Interfaces
     {
         public static async void Show(string content, string title)
         {
-            //MessageDialog messageDialog = new MessageDialog(content, title);
-            ContentDialog messageDialog = new ContentDialog();
-            messageDialog.Title = title;
-            messageDialog.Content = content;
-            messageDialog.PrimaryButtonText = "Close";
-            messageDialog.Hide();
+            try
+            {
+                ContentDialog messageDialog = new ContentDialog();
+                messageDialog.Title = title;
+                messageDialog.Content = content;
+                messageDialog.PrimaryButtonText = "Close";
+                messageDialog.Hide();
 
-            await messageDialog.ShowAsync();
+                await messageDialog.ShowAsync();
+            }
+            catch (Exception)
+            {
+                
+                // Ignore
+            }
+            //MessageDialog messageDialog = new MessageDialog(content, title);
+            
             
             //if (messageDialog.Content != null)
             //{
