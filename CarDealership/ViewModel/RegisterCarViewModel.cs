@@ -44,7 +44,19 @@ namespace CarDealership.ViewModel
 
         // Property relaed to search for car
 
-        public string searchforcar { set; get; }
+        private string searchforcar;
+        public string SearchForCar
+        {
+            set
+            {
+                searchforcar = value;
+                OnPropertyChanged("SearchForCar");
+                SearchCar("sd");
+            }
+
+            get { return searchforcar; }
+        }
+
 
         public Car SelectedCar
         {
@@ -96,7 +108,16 @@ namespace CarDealership.ViewModel
 
         public void SearchCar(object newItem)
         {
-            CarCatalog.SearchCar(searchforcar);
+            if (string.IsNullOrEmpty(searchforcar))
+            {
+                CarCollection = CarCatalog._carList;
+            }
+            else
+            {
+              CarCollection= CarCatalog.SearchCar(searchforcar);
+            }
+           
+            
         }
 
         public void Deletecar(object newItem)
