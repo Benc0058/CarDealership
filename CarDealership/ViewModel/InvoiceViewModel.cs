@@ -150,33 +150,6 @@ namespace CarDealership.ViewModel
             }
         }
 
-        public void AddCustomer(object newItem)
-        {
-
-            if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License))
-            {
-                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, PhoneNumber, Cpr, License);
-            }
-            else
-            {
-                string k = "Missing data, all the information about customer must be filled out. Age must be a number";
-
-                MessageBox.Show(k, "Missing data");
-            }
-        }
-
-        public bool Validate(string name, int age, string adress, string phonenumber, string cpr, string license)
-        {
-            if (string.IsNullOrEmpty(name)) { return false; }
-            if (string.IsNullOrEmpty(adress)) { return false; }
-            if (string.IsNullOrEmpty(cpr)) { return false; }
-            if (string.IsNullOrEmpty(license)) { return false; }
-            if (string.IsNullOrEmpty(phonenumber)) { return false; }
-            if (age == 0) { return false; }
-
-            return true;
-        }
-
         public async void LoadData()
         {
             try
