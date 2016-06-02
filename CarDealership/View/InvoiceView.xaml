@@ -67,7 +67,7 @@
             <SplitView.Content>
                 <Grid>
                     <Grid.DataContext>
-                        <ViewModel:CustomerViewModel/>
+                        <ViewModel:InvoiceViewModel/>
                     </Grid.DataContext>
 
                     <!--DataGrid-->
@@ -117,26 +117,14 @@
                         <!--Inputs-Begin-->
                         <StackPanel>
                             <StackPanel Height="45" Orientation="Horizontal" Margin="7,0" HorizontalAlignment="Center">
-                                <StackPanel VerticalAlignment="Center" Width="160">
-                                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Name"/>
-                                </StackPanel>
-                                <StackPanel VerticalAlignment="Center" Width="160">
-                                    <TextBox Text="{Binding Age, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Age"/>
-                                </StackPanel>
-                                <StackPanel VerticalAlignment="Center" Width="160">
-                                    <TextBox Text="{Binding Cpr, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" PlaceholderText="CPR-Number" Margin="0,7,0,6"/>
-                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center" Width="160"/>
+                                <StackPanel VerticalAlignment="Center" Width="160"/>
+                                <StackPanel VerticalAlignment="Center" Width="160"/>
                             </StackPanel>
                             <StackPanel Height="45" Orientation="Horizontal" Margin="7,0" HorizontalAlignment="Center">
-                                <StackPanel VerticalAlignment="Center" Width="160">
-                                    <TextBox Text="{Binding Adress, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Address"/>
-                                </StackPanel>
-                                <StackPanel VerticalAlignment="Center" Width="160">
-                                    <TextBox Text="{Binding Phonenumber, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="Phone"/>
-                                </StackPanel>
-                                <StackPanel VerticalAlignment="Center" Width="160">
-                                    <TextBox Text="{Binding License, Mode=TwoWay}" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" PlaceholderText="Licence" Margin="0,7,0,6"/>
-                                </StackPanel>
+                                <StackPanel VerticalAlignment="Center" Width="160"/>
+                                <StackPanel VerticalAlignment="Center" Width="160"/>
+                                <StackPanel VerticalAlignment="Center" Width="160"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -147,17 +135,16 @@
 
                     <!--AppBar-Begin-->
                     <StackPanel Orientation="Horizontal" Margin="315,0,0,40" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        <AppBarButton Icon = "Add" Command="{Binding AddCustomerCommand}"/>
                         <AppBarSeparator/>
-                        <AppBarButton Icon = "Delete" Command="{Binding DeleteCustomerCommand}"/>
                     </StackPanel>
                     <!--AppBar-End-->
 
                     <!--FilterCar-Begin-->
                     <StackPanel HorizontalAlignment="Center" Height="90" Width="600" Margin="317,11,313,0" VerticalAlignment="Top" Orientation="Horizontal">
-                        <TextBox PlaceholderText="Find Car" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}" Margin="0,0,0,2"/>
+                        <TextBox PlaceholderText="Find Customer" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}" Margin="0,0,0,2"/>
                         <!--<Button x:Name="Search" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="32" Width="100" Background="#32BEA6"/>-->
                     </StackPanel>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="432" Margin="946,103,0,0" TextWrapping="Wrap" Text="{Binding Invoicetext, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
                     <!--FilterCar-End-->
 
                 </Grid>

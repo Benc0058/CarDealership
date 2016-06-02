@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CarDealership.Catalog;
 using CarDealership.Interfaces;
 using CarDealership.Model;
+using CarDealership.Persistency;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -20,6 +21,7 @@ namespace CarDealership.ViewModel
         private ObservableCollection<Car> _carCollection;
         private Customer _selectedcustomer;
         private Car _selectedcar;
+        private Facade _facade;
         private string _invoicetext;
 
         // Properties
@@ -41,7 +43,7 @@ namespace CarDealership.ViewModel
         public string phonenumber { set; get; }
         public string cpr { set; get; }
         public string license { set; get; }
-        public Customer Selectedcustomer
+        public Customer SelectedCustomer
         {
             set
             {
@@ -49,7 +51,7 @@ namespace CarDealership.ViewModel
                 {
                     _selectedcustomer = value;
                     OnPropertyChanged("SelectedCustomer");
-                    //CreateInvoice();
+                    CreateInvoice("sd");
                 }
             }
             get { return _selectedcustomer; }
@@ -89,8 +91,12 @@ namespace CarDealership.ViewModel
             createInvoice = new Command(CreateInvoice);
           
             searchCustomer = new Command(SearchCustomer);
-          
+
+
+            _facade = new Facade();
+            LoadData();
             CustomerCollection = CustomerCatalog._customerList;
+
         }
 
         // Commands
@@ -115,10 +121,11 @@ namespace CarDealership.ViewModel
 
         public void CreateInvoice(object newitem)
         {
-            if (Selectedcustomer != null)
+            if (SelectedCustomer != null)
             {
-                Invoice invoice = new Invoice(CarCatalog.SelectedCar, Selectedcustomer);
+                Invoice invoice = new Invoice(CarCatalog.SelectedCar, SelectedCustomer);
                 thisinvoice = invoice;
+                Invoicetext = invoice.invoicetext;
             }
         }
 
@@ -155,6 +162,20 @@ namespace CarDealership.ViewModel
             if (age == 0) { return false; }
 
             return true;
+        }
+        public async void LoadData()
+        {
+            try
+            {
+                ObservableCollection<Customer> customer = await _facade.LoadCustomer();
+
+                this._customerCollection = customer;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error is: " + ex, "Error");
+            }
         }
     }
 
