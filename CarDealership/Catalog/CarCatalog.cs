@@ -52,40 +52,42 @@ namespace CarDealership.Catalog
 
     
 
-        public static void SearchCar(string text)
+        public static ObservableCollection<Car> SearchCar(string text)
         {
-            int k = 0;
+            ObservableCollection<Car> k = new ObservableCollection<Car>();
+         
             for (int i = 0; i < _carList.Count; i++)
             {
                 if (Convert.ToString(_carList[i].ID) == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]);continue;
                 }
                 if (Convert.ToString(_carList[i].Year) == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]); continue;
                 }
                 if (Convert.ToString(_carList[i].Price) == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]); continue;
                 }
                 if (_carList[i].Name == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]); continue;
                 }
                 if (_carList[i].Brand == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]); continue;
                 }
                 if (_carList[i].Comment == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]); continue;
                 }
                 if (_carList[i].Color == text)
                 {
-                    replace(i, k); k++;
+                    k.Add(_carList[i]); continue;
                 }
             }
+            return k;
         }
 
         private static void replace(int a, int b)

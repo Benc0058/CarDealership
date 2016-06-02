@@ -170,8 +170,8 @@
 
                     <!--FilterCar-Begin-->
                     <StackPanel HorizontalAlignment="Center" Height="90" Width="600" Margin="317,11,313,0" VerticalAlignment="Top" Orientation="Horizontal">
-                        <TextBox PlaceholderText="Find Car" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding searchforcar, Mode=TwoWay}" Margin="0,0,0,2"/>
-                        <!--<Button x:Name="Search" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="32" Width="100" Background="#32BEA6"/>-->
+                        <TextBox PlaceholderText="Find Car" Width="600" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="{Binding SearchForCar, Mode=TwoWay}" Margin="0,0,0,2"/>
+                        <Button x:Name="Search" Content="Search" HorizontalAlignment="Stretch" Command="{Binding searchCar}" VerticalAlignment="Top" Height="32" Width="100" Background="#32BEA6"/>
                     </StackPanel>
                     <!--FilterCar-End-->
 
