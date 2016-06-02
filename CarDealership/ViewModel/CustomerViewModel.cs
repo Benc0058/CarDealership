@@ -36,7 +36,7 @@ namespace CarDealership.ViewModel
 
         public string Name { set; get; }
 
-        public int Age { set; get; }
+        public string Age { set; get; }
 
         public string Adress { set; get; }
 
@@ -134,30 +134,50 @@ namespace CarDealership.ViewModel
             //string cmdlicense = license;
 
 
-            if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License))
+            if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License)=="true")
             {
-                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Age, Adress, PhoneNumber, Cpr, License);
+                Customer customer = CustomerCatalog.CreatNewCustomer(Name, Int32.Parse(Age), Adress, PhoneNumber, Cpr, License);
                 _facade.SaveCustomer();
             }
             else
             {
-                string k = "Missing data, all the information about customer must be filled out. Age must be a number";
+              
 
 
-                MessageBox.Show(k, "Missing data");
+                MessageBox.Show((Validate(Name, Age, Adress, PhoneNumber, Cpr, License)), "Missing data");
             }
         }
 
-        public bool Validate(string name, int age, string adress, string phonenumber, string cpr, string license)
-        {//todo change the validation 
-            if (string.IsNullOrEmpty(name)) { return false; }
-            if (string.IsNullOrEmpty(adress)) { return false; }
-            if (string.IsNullOrEmpty(cpr)) { return false; }
-            if (string.IsNullOrEmpty(license)) { return false; }
-            if (string.IsNullOrEmpty(phonenumber)) { return false; }
-            if (age == 0) { return false; }
-
-            return true;
+        public string Validate(string name, string age, string adress, string phone, string cpr,string license)
+        {
+            if (string.IsNullOrEmpty(name)) { return "Name is empty"; }
+            if (string.IsNullOrEmpty(age)) { return "Age is empty"; }
+            if (string.IsNullOrEmpty(Adress)) { return "Adress is empty"; }
+            if (string.IsNullOrEmpty(phone)) { return "Phone Number is empty"; }
+            if (string.IsNullOrEmpty(cpr)) { return "CPR is empty"; }
+            if (string.IsNullOrEmpty(license)) { return "License is empty"; }
+            try
+            {
+                int x = Int32.Parse(age);
+                if ((x < 18) || (x > 150))
+                {
+                    return "Invalid Age";
+                }
+            }
+            catch
+            {
+                return "Age Must Be a Number";
+            }
+            try
+            {
+                int x = Int32.Parse(cpr);
+               
+            }
+            catch
+            {
+                return "CPR Must Be a Number";
+            }
+            return "true";
         }
         public async void LoadData()
         {
