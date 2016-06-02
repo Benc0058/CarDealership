@@ -28,8 +28,7 @@ namespace CarDealership.View
         public RegisterCarPage()
         {
             this.InitializeComponent();
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 720, Height = 720 });
-
+            //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 1000, Height = 720 });
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

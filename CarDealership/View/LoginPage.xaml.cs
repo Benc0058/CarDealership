@@ -30,7 +30,7 @@ namespace CarDealership.View
             this.InitializeComponent();
 
             // Set the minimum size of the Application
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 720, Height = 720 });
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 1000, Height = 720 });
         
             // Here we can change the color of the Title Bar
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;

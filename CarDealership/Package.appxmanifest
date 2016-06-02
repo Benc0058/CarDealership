@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CarDealership.App">
-      <uap:VisualElements DisplayName="CarDealership" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="CarDealership" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="CarDealership" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Car-Icon-88x.png" Description="CarDealership" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="BrightCar">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
