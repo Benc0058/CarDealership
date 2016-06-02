@@ -71,7 +71,7 @@
                     </Grid.DataContext>
 
                     <!--DataGrid-->
-                    <StackPanel  BorderThickness="3,3,3,3" BorderBrush="WhiteSmoke" Width="600" Margin="315,103,315,97">
+                    <StackPanel  BorderThickness="3,3,3,3" BorderBrush="WhiteSmoke" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <controls:DataGrid ItemsSource="{Binding CustomerCollection}" x:Name="DataGrid" 
                    SelectionMode="Single" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" DefaultOrderIndex="1" Height="380" Width="600" Margin="0,0,-3,0" controls:DataGridExtensions.UseSingleSelectionAndDeselection="true">
                             <!--Here u can put the header-->
@@ -132,12 +132,6 @@
                     <!--DataGrid-End-->
 
                     <!--<HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>-->
-
-                    <!--AppBar-Begin-->
-                    <StackPanel Orientation="Horizontal" Margin="315,0,0,40" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        <AppBarSeparator/>
-                    </StackPanel>
-                    <!--AppBar-End-->
 
                     <!--FilterCar-Begin-->
                     <StackPanel HorizontalAlignment="Center" Height="90" Width="600" Margin="317,11,313,0" VerticalAlignment="Top" Orientation="Horizontal">

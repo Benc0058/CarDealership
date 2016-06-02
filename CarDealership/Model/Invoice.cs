@@ -56,9 +56,9 @@ namespace CarDealership.Model
         public async void Save(string text)
         {
             Windows.Storage.StorageFolder storageFolder =
-      Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.ApplicationData.Current.LocalFolder;
             Windows.Storage.StorageFile sampleFile =
-                await storageFolder.GetFileAsync("sample.txt");
+            await storageFolder.GetFileAsync("sample.txt");
             await Windows.Storage.FileIO.WriteTextAsync(sampleFile, "Swift as a shadow");
 
 
