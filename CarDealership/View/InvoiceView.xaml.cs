@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,6 +30,8 @@ namespace CarDealership.View
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 1000, Height = 720 });
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
