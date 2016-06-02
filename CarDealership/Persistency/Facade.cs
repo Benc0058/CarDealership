@@ -31,6 +31,7 @@ namespace CarDealership.Persistency
 
             }
         }
+
         public async Task<ObservableCollection<Car>> Load()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
@@ -45,6 +46,9 @@ namespace CarDealership.Persistency
             CarCatalog._carList = _listOfCars;
             return _listOfCars;
         }
+
+        // Serializer to Customer
+
         public async void SaveCustomer()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;

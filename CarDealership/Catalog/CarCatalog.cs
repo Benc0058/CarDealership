@@ -36,21 +36,18 @@ namespace CarDealership.Catalog
 
         static public ObservableCollection<Car> _carList = new ObservableCollection<Car>();
         static public Car SelectedCar;
+
         // Method
+
         static public Car CreatNewCar(string name, string brand, string color, string year, string comment, string price, string imagepath)
         {
             Car car = new Car(name, brand, color, year, comment, price, imagepath);
-            //if (ListContains(car)) { car = null; }
-            //else
-            //{
+
             _carList.Add(car);
-            //}
 
             return car;
 
         }
-
-    
 
         public static ObservableCollection<Car> SearchCar(string text)
         {
@@ -89,7 +86,5 @@ namespace CarDealership.Catalog
             }
             return k;
         }
-
-     
     }
 }

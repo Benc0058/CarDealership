@@ -18,7 +18,8 @@ namespace CarDealership.Model
         private string _cprNumber;
         private string _licence;
 
-        // Properties
+        // Constructor
+
         public Customer(string name, int age, string adress, string phonenumber, string cpr, string license)
         {
             _name = name;
@@ -32,6 +33,9 @@ namespace CarDealership.Model
         {
 
         }
+
+        // Properties
+
         public string Name
         {
             set { _name = value; }

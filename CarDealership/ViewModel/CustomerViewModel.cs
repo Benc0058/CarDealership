@@ -17,11 +17,14 @@ namespace CarDealership.ViewModel
     public class CustomerViewModel : Notification
     {
         // Instance Field
+
         private ObservableCollection<Customer> _customerCollection;
         private Facade _facade;
         private Customer _selectedcustomer;
-  
+        private string searchforcustomer;
+
         // Properties
+
         public ObservableCollection<Customer> CustomerCollection
         {
             set
@@ -31,8 +34,6 @@ namespace CarDealership.ViewModel
             }
             get { return _customerCollection; }
         }
-
-        
 
         public string Name { set; get; }
 
@@ -60,13 +61,6 @@ namespace CarDealership.ViewModel
             get { return _selectedcustomer; }
         }
 
-
-
-
-
-
-
-        private string searchforcustomer;
         public string SearchForCustomer
         
             {
@@ -82,7 +76,6 @@ namespace CarDealership.ViewModel
         
 
         public Command AddCustomerCommand { set; get; }
-      
         public Command SearchCustomerCommand { set; get; }
         public Command DeleteCustomerCommand { set; get; }
 
@@ -118,21 +111,10 @@ namespace CarDealership.ViewModel
             {
                 CustomerCollection = CustomerCatalog.SearchCustomer(searchforcustomer);
             }
-
-
         }
-
-
 
         public void AddCustomer(object newItem)
         {
-            //string cmdname = name;
-            //int cmdage = age;
-            //string cmdadress = adress;
-            //string cmdphonenumber = phonenumber;
-            //string cmdcpr = cpr;
-            //string cmdlicense = license;
-
 
             if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License)=="true")
             {
@@ -141,9 +123,6 @@ namespace CarDealership.ViewModel
             }
             else
             {
-              
-
-
                 MessageBox.Show((Validate(Name, Age, Adress, PhoneNumber, Cpr, License)), "Missing data");
             }
         }
@@ -179,6 +158,7 @@ namespace CarDealership.ViewModel
             }
             return "true";
         }
+
         public async void LoadData()
         {
             try

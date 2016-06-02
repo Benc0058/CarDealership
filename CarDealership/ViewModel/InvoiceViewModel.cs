@@ -17,12 +17,14 @@ namespace CarDealership.ViewModel
     public class InvoiceViewModel : Notification
     {
         // Instance Field
+
         private ObservableCollection<Customer> _customerCollection;
         private ObservableCollection<Car> _carCollection;
         private Customer _selectedcustomer;
         private Car _selectedcar;
         private Facade _facade;
         private string _invoicetext;
+        private string searchforcustomer;
 
         // Properties
 
@@ -37,12 +39,19 @@ namespace CarDealership.ViewModel
         }
 
         public Invoice thisinvoice { set; get; }
+
         public string Name { set; get; }
+
         public int Age { set; get; }
+
         public string Adress { set; get; }
+
         public string PhoneNumber { set; get; }
+
         public string Cpr { set; get; }
+
         public string License { set; get; }
+
         public Customer SelectedCustomer
         {
             set
@@ -56,6 +65,7 @@ namespace CarDealership.ViewModel
             }
             get { return _selectedcustomer; }
         }
+
         public string Invoicetext
         {
             set
@@ -72,7 +82,6 @@ namespace CarDealership.ViewModel
             get { return _invoicetext; }
         }
 
-        private string searchforcustomer;
         public string SearchForCustomer
 
         {
@@ -86,7 +95,6 @@ namespace CarDealership.ViewModel
             get { return searchforcustomer; }
         }
 
-
         public Command createInvoice { set; get; }
         public Command searchCustomer { set; get; }
 
@@ -95,12 +103,9 @@ namespace CarDealership.ViewModel
         public InvoiceViewModel()
         {
             Invoicetext = "Select the customer to show Invoice details";
-            //  _carCatalog = new CarCatalog();
-            //invoicedetails = "Select a Car and a Customer\n Invoice details will display here";
-            createInvoice = new Command(CreateInvoice);
-          
-            searchCustomer = new Command(SearchCustomer);
 
+            createInvoice = new Command(CreateInvoice);
+            searchCustomer = new Command(SearchCustomer);
 
             _facade = new Facade();
             LoadData();
@@ -109,8 +114,6 @@ namespace CarDealership.ViewModel
         }
 
         // Commands
-
-   
 
         public void SearchCustomer(object newItem)
         {
@@ -149,13 +152,6 @@ namespace CarDealership.ViewModel
 
         public void AddCustomer(object newItem)
         {
-            //string cmdname = name;
-            //int cmdage = age;
-            //string cmdadress = adress;
-            //string cmdphonenumber = phonenumber;
-            //string cmdcpr = cpr;
-            //string cmdlicense = license;
-
 
             if (Validate(Name, Age, Adress, PhoneNumber, Cpr, License))
             {
@@ -164,7 +160,6 @@ namespace CarDealership.ViewModel
             else
             {
                 string k = "Missing data, all the information about customer must be filled out. Age must be a number";
-
 
                 MessageBox.Show(k, "Missing data");
             }
@@ -181,6 +176,7 @@ namespace CarDealership.ViewModel
 
             return true;
         }
+
         public async void LoadData()
         {
             try

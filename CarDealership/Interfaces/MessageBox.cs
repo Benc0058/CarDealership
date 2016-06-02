@@ -29,14 +29,6 @@ namespace CarDealership.Interfaces
                 
                 // Ignore
             }
-            //MessageDialog messageDialog = new MessageDialog(content, title);
-            
-            
-            //if (messageDialog.Content != null)
-            //{
-            //    messageDialog.ShowAsync().Cancel();
-            //    messageDialog = null;
-            //}
         }
     }
 }

@@ -12,11 +12,15 @@ namespace CarDealership.Model
 {
     public class Invoice
     {
+
+        // Instance Field
+
         private Customer _customer;
         private Car _car;
         public string invoicetext;
         static public string loggedinuser;
       
+        // COnstructor
 
         public Invoice(Car car, Customer customer)
         {
@@ -25,6 +29,8 @@ namespace CarDealership.Model
             invoicetext = Invoicetext();
 
         }
+
+        // Properties
 
         public string Invoicetext()
         {
@@ -50,16 +56,6 @@ namespace CarDealership.Model
             text += "Date : " + DateTime.Now.ToString("d") + "\n";
             text += "Sold by "+loggedinuser;
             return text;
-
-
-        }
-        public async void Save(string text)
-        {
-            Windows.Storage.StorageFolder storageFolder =
-            Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile =
-            await storageFolder.GetFileAsync("sample.txt");
-            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, "Swift as a shadow");
 
 
         }

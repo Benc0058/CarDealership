@@ -16,8 +16,9 @@ namespace CarDealership.ViewModel
     {
         // Instance Field
         private ObservableCollection<Car> _carCollection;
-        private Facade _facade;             //for save and load the data to file
-        private Car _selectedCar;           //
+        private Facade _facade;            
+        private Car _selectedCar;
+        private string searchforcar;
 
         // Properties
 
@@ -31,20 +32,22 @@ namespace CarDealership.ViewModel
             get { return _carCollection; }
         }
 
-        //Properties related to adding a car
-
         public int ID { set; get; }
+
         public string Name { set; get; }
+
         public string Brand { set; get; }
+
         public string Color { set; get; }
+
         public string Year { set; get; }
+
         public string Comment { set; get; }
+
         public string Price { set; get; }
+
         public string ImagePath { set; get; }
 
-        // Property relaed to search for car
-
-        private string searchforcar;
         public string SearchForCar
         {
             set
@@ -57,7 +60,6 @@ namespace CarDealership.ViewModel
             get { return searchforcar; }
         }
 
-
         public Car SelectedCar
         {
             set
@@ -69,7 +71,7 @@ namespace CarDealership.ViewModel
             get { return _selectedCar; }
 
         }
-        // Commands 
+
         public Command AddCar { set; get; }
         public Command DeleteCar { set; get; }
         public Command searchCar { set; get; }
@@ -91,7 +93,7 @@ namespace CarDealership.ViewModel
             this.LoadData();
         }
 
-        // Command functions
+        // Commands
 
         public void CreateInvoice(object newItem)
         {

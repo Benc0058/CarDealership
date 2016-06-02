@@ -24,7 +24,7 @@ namespace CarDealership.Model
         private string _price;
         private string _imagepath;
 
-        // Constructor. It is not good to use the default Constructor because the data will be missing
+        // Constructor
 
         public Car(string name, string brand, string color, string year, string comment, string price, string imagepath)
         {
@@ -43,6 +43,7 @@ namespace CarDealership.Model
         {
 
         }
+
         // Properties
 
         public string ImagePath

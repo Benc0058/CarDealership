@@ -14,7 +14,7 @@ namespace CarDealership.Catalog
 
         static public ObservableCollection<Customer> _customerList = new ObservableCollection<Customer>();
 
-        // Method
+        // Methods
 
         static public Customer CreatNewCustomer(string name, int age, string adress, string phonenumber, string cpr, string license)
         {
@@ -58,7 +58,5 @@ namespace CarDealership.Catalog
             }
             return k;
         }
-
-      
     }
 }
