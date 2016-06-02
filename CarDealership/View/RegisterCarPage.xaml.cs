@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,6 +28,8 @@ namespace CarDealership.View
         public RegisterCarPage()
         {
             this.InitializeComponent();
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 720, Height = 720 });
+
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

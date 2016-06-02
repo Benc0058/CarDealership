@@ -13,6 +13,7 @@
     </Page.DataContext>
 
     <Grid Background="White">
+
         <Image Source="../Assets/icon_car.png"
                Width="200"
                Height="200"
