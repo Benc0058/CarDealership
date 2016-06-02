@@ -159,7 +159,7 @@
                     <!--<HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>-->
 
                     <!--AppBar-Begin-->
-                    <StackPanel Orientation="Horizontal" Margin="315,0,0,40" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <StackPanel Orientation="Horizontal" Margin="315,0,0,40" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                         <AppBarButton Icon = "Add" Command="{Binding AddCar}"/>
                         <AppBarSeparator/>
                         <AppBarButton Icon = "Delete" Command="{Binding DeleteCar}"/>

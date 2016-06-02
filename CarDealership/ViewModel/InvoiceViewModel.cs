@@ -74,11 +74,8 @@ namespace CarDealership.ViewModel
 
         public string Searchforcustomer { set; get; }
 
-        public Command addCustomer { set; get; }
         public Command createInvoice { set; get; }
-    
         public Command searchCustomer { set; get; }
-        public Command deleteCar { set; get; }
 
         // Constructor
 
@@ -87,7 +84,6 @@ namespace CarDealership.ViewModel
             Invoicetext = "Select the customer to show Invoice details";
             //  _carCatalog = new CarCatalog();
             //invoicedetails = "Select a Car and a Customer\n Invoice details will display here";
-            addCustomer = new Command(AddCustomer);
             createInvoice = new Command(CreateInvoice);
           
             searchCustomer = new Command(SearchCustomer);
