@@ -130,7 +130,7 @@
                     </StackPanel>
                     <!--Inputs-End-->
                     <!--DataGrid-End-->
-
+                    <Button Content="Creat Invoice" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,150,125"/>
                     <!--<HyperlinkButton Content="" HorizontalAlignment="Left" Margin="1056,257,0,0" VerticalAlignment="Top"/>-->
 
                     <!--FilterCar-Begin-->
