@@ -58,7 +58,7 @@ namespace CarDealership.ViewModel
             // Add a new User
             User bence = new User("Bence", "TheStar");
             User jakub = new User("Jakub", "Cool");
-            User mohamed = new User("Mohammed", "TheTeacer");
+            User mohamed = new User("Mohammed", "TheTeacher");
             User zuhair = new User("Zuhair", "mod");
             User wen = new User("Wen", "DaBoy");
             User abdul = new User("Abdul", "TheMan");
